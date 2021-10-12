@@ -10,6 +10,7 @@
 https://www.figma.com/file/m7g72D4yItO071hLckHu61/シネマト?node-id=315%3A167
 
 # ER図
+https://drive.google.com/file/d/111CB9IqAk-Yi05SZlszvgVqzp2JWbSVh/view?usp=sharing
 
 # ターゲット
 - 予告編が好きな人
