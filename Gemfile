@@ -19,6 +19,9 @@ gem 'puma', '~> 3.11'
 # Database
 gem 'pg', '1.1.4'
 
+# Api
+gem 'themoviedb-api', '1.3.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '1.8.1'
 
