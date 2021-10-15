@@ -1,0 +1,21 @@
+<% if @movies.present? %>
+  <table class="table m-5">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">poster</th>
+        <th scope="col">id</th>
+        <th scope="col">api_id</th>
+        <th scope="col">title</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @movies %>
+    </tbody>
+  </table>
+<% else %>
+  <p>映画は登録されていません</p>
+<% end %>

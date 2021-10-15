@@ -1,0 +1,22 @@
+<div class="text-center m-5">
+  <%= link_to '登録', new_admin_genre_path, class: 'link-primary' %>
+</div>
+
+<% if @genres.present? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">id</th>
+        <th scope="col">api_genre_id</th>
+        <th scope="col">name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @genres %>
+    </tbody>
+  </table>
+<% else %>
+  <p>ジャンルは登録されていません</p>
+<% end %>
+

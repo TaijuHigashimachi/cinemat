@@ -1,0 +1,91 @@
+<h1>TMDB検索</h1>
+
+  <div>
+    <%= form_tag(admin_movies_search_path, method: :get) do %>
+      <%= search_field_tag :user_input, nil, placeholder: 'Movie Title...' %>
+      <%= submit_tag '検索' %>
+    <% end %>
+  </div>
+
+  <%# 検索された時にコンテンツを表示する %>
+  <%if params[:user_input].present? %>
+    
+
+    <h1><%= params[:user_input] %>　の検索結果</h1>
+
+    <div class="d-flex">
+
+      <%= simple_form_for [:admin, @movie], html: { class: "mr-3 w-25"} do |f| %>
+        <div class="form-group">
+          <%= f.input :title %>
+          <%= f.input :poster_url %>
+          <%= f.input :trailer_url %>
+          <%= f.input :api_id %>
+          <%= f.input :release_date %>
+          <%= f.input :user_score %>
+          <%= f.input :overview %>
+          <%= f.fields_for :movie_genres do |ff| %>
+            <%= ff.collection_select :genre_id, Genre.all, :id, :name  %>
+          <% end %>
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+
+      <div class="movie_data border w-75">
+        <div class="d-flex">
+          <div class="poster w-25">
+            <% if @detail_result['poster_path'].present? %>
+                <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @detail_result['poster_path'],class: "card-img" %>
+            <%end%>
+          </div>
+          <div class="poster w-75">
+            <% if @detail_result['videos'].present? %>
+              <iframe src="https://www.youtube.com/embed/<%= @detail_result['videos']['results'][0]['key'] %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-100 h-100"></iframe>
+            <%end%>
+          </div>
+        </div>
+        <div class="detail p-3">
+          <div class="d-flex border">
+            <div class="d-block border-right p-1 m-1 col-4">
+              <% if @detail_result['id'].present? %>
+                <p class="h5 text-center">api_id</p>
+                <p class="text-center"><%= @detail_result['id'] %></p>
+              <%end%>
+            </div>
+            <div class="d-block border-right p-1 m-1 col-4">
+              <% if @detail_result['release_date'].present? %>
+                <p class="h5 text-center">release_date</p>
+                <p class="text-center"><%= @detail_result['release_date'] %></p>
+              <%end%>
+            </div>
+            <div class="d-block p-1 m-1 col-4">
+              <% if @detail_result['vote_average'].present? %>
+                <p class="h5 text-center">user_score</p>
+                <p class="text-center"><%= @detail_result['vote_average'].to_i * 10 %></p>
+              <%end%>
+            </div>
+          </div>
+          <% if @detail_result['title'].present? %>
+            <p class="h3 ">title</p>
+            <p><%= @detail_result['title'] %></p>
+          <%end%>
+          <hr>
+          <% if @detail_result['genres'].present? %>
+            <p class="h3">genres</p>
+            <div class="d-flex">
+              <% @detail_result['genres'].each do |genre| %>
+                <p class="mr-2"><%= genre['name'] %></p>
+              <% end %>
+            </div>
+          <%end%>
+          <hr>
+          <% if @detail_result['overview'].present? %>
+            <p class="h3">overview</p>
+            <p><%= @detail_result['overview'] %></p>
+          <%end%>
+        </div>
+      </div>
+    </div>
+
+    
+  <%end%>

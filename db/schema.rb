@@ -10,20 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_13_055322) do
+ActiveRecord::Schema.define(version: 2021_10_14_053622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "movies", force: :cascade do |t|
-    t.integer "api_id", null: false
-    t.string "title", null: false
-    t.string "trailer_url", null: false
-    t.datetime "release_date", null: false
-    t.float "user_score", null: false
-    t.text "overview", null: false
+  create_table "genres", force: :cascade do |t|
+    t.integer "api_genre_id", null: false
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "movie_genres", force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "genre_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_movie_genres_on_genre_id"
+    t.index ["movie_id"], name: "index_movie_genres_on_movie_id"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.integer "api_id", null: false
+    t.string "title", null: false
+    t.float "user_score", null: false
+    t.text "overview", null: false
+    t.string "trailer_url", null: false
+    t.string "poster_url", null: false
+    t.date "release_date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "movie_genres", "genres"
+  add_foreign_key "movie_genres", "movies"
 end

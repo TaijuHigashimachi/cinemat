@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, @genre] do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.input :api_genre_id %>
+    <%= f.input :name %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>

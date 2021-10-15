@@ -22,6 +22,9 @@ gem 'pg', '1.1.4'
 # Api
 gem 'themoviedb-api', '1.3.0'
 
+# Form
+gem 'simple_form'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '1.8.1'
 

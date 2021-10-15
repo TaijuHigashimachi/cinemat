@@ -1,0 +1,12 @@
+<%= simple_form_for [:admin, @movie] do |f| %>
+  <div class="form-group">
+    <%= f.input :title %>
+    <%= f.input :poster_url %>
+    <%= f.input :trailer_url %>
+    <%= f.input :api_id %>
+    <%= f.input :release_date, discard_hour: true, discard_minute: true %>
+    <%= f.input :user_score %>
+    <%= f.input :overview %>
+    <%= f.button :submit, class: 'btn btn-primary' %>
+  </div>
+<% end %>
