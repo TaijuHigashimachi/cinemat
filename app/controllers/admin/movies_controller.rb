@@ -53,11 +53,12 @@ class Admin::MoviesController < ApplicationController
       @movie = Movie.new
       @movie.api_id = @detail_result['id']
       @movie.title = @detail_result['title']
-      @movie.trailer_url = @detail_result['videos']['results'][0]['key']
-      @movie.release_date = @detail_result['release_date']
+      @movie.runtime = @detail_result['runtime']
       @movie.user_score = @detail_result['vote_average'].to_i * 10
+      @movie.release_date = @detail_result['release_date']
       @movie.overview = @detail_result['overview']
       @movie.poster_url = @detail_result['poster_path']
+      @movie.trailer_url = @detail_result['videos']['results'][0]['key']
 
       3.times{
         @movie.movie_genres.build
@@ -68,7 +69,7 @@ class Admin::MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:api_id, :title, :trailer_url, :release_date, :user_score, :overview, :poster_url, movie_genres_attributes: [:id, :movie_id, :genre_id])
+    params.require(:movie).permit(:api_id, :title, :runtime, :user_score, :release_date, :overview, :poster_url, :trailer_url, movie_genres_attributes: [:id, :movie_id, :genre_id])
   end
 
   def set_movie

@@ -34,11 +34,12 @@ ActiveRecord::Schema.define(version: 2021_10_14_053622) do
   create_table "movies", force: :cascade do |t|
     t.integer "api_id", null: false
     t.string "title", null: false
-    t.float "user_score", null: false
-    t.text "overview", null: false
-    t.string "trailer_url", null: false
-    t.string "poster_url", null: false
+    t.string "runtime", null: false
+    t.integer "user_score", null: false
     t.date "release_date", null: false
+    t.text "overview", null: false
+    t.string "poster_url", null: false
+    t.string "trailer_url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
