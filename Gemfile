@@ -5,6 +5,9 @@ gem "rails", '6.0.3.7'
 
 # Assets
 gem 'webpacker'
+gem 'bootstrap', '4.5.3 '
+gem 'jquery-rails'
+gem 'font-awesome-rails'
 
 # UI/UX
 gem 'turbolinks'
@@ -15,6 +18,12 @@ gem 'puma', '~> 3.11'
 
 # Database
 gem 'pg', '1.1.4'
+
+# Api
+gem 'themoviedb-api', '1.3.0'
+
+# Form
+gem 'simple_form'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '1.8.1'

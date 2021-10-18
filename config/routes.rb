@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :admin do
+    get 'movies/search', to: 'movies#search'
+    resources :movies, only: %i[index create show edit update destroy ]
+    resources :genres, only: %i[index new create edit update destroy ]
+  end
+
+  root 'movies#index'
 end
