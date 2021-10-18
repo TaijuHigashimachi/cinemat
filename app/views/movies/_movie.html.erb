@@ -1,40 +1,42 @@
-<%# 予告動画 %>
-<div>
-  <iframe src="https://www.youtube.com/embed/<%= movie.trailer_url %>" class="w-100" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-<%# 作品名 %>
-<div class="text-start">
-  <div class="h3">
-    <%= movie.title %>
+<div class="swiper-slide">
+  <%# 予告動画 %>
+  <div class="trailer">
+    <iframe src="https://www.youtube.com/embed/<%= movie.trailer_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
-  <div class="d-flex">
-    <div class="d-flex w-75">
-      <div class="m-2">
-        <%= movie.release_date.to_s.slice(0, 4) + '年公開' %>
+
+  <%# 作品名 %>
+  <div class="text-start">
+    <div class="h3">
+      <%= movie.title %>
+    </div>
+    <div class="d-flex">
+      <div class="d-flex w-75">
+        <div class="m-2">
+          <%= movie.release_date.to_s.slice(0, 4) + '年公開' %>
+        </div>
+        <div class="m-2">
+          <%= movie.runtime + '分' %>
+        </div>
+        <div class="m-2">
+          <%= movie.genres[0]['name'] %>
+          <%= movie.genres[1]['name'] %>
+          <%= movie.genres[2]['name'] %>
+        </div>
       </div>
-      <div class="m-2">
-        <%= movie.runtime + '分' %>
-      </div>
-      <div class="m-2">
-        <%= movie.genres[0]['name'] %>
-        <%= movie.genres[1]['name'] %>
-        <%= movie.genres[2]['name'] %>
+      <div class="w-25 m-2 text-end">
+        <p>
+          <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#movie_detail" aria-expanded="false" aria-controls="collapseExample">
+            あらすじを見る
+          </button>
+        </p>
       </div>
     </div>
-    <div class="w-25 m-2 text-end">
-      <p>
-        <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#movie_detail" aria-expanded="false" aria-controls="collapseExample">
-          あらすじを見る
-        </button>
-      </p>
-    </div>
   </div>
-</div>
 
-<%# 作品詳細 %>
-<div class="collapse" id="movie_detail">
-  <div class="card card-body text-start">
-    <%= movie.overview %>
+  <%# 作品詳細 %>
+  <div class="collapse" id="movie_detail">
+    <div class="card card-body text-start">
+      <%= movie.overview %>
+    </div>
   </div>
 </div>
