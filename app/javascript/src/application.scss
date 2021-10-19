@@ -1,9 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-body {
-  background-color: #21252A !important;
-  color: #FFF; 
+.form-wrapper {
+  max-width: 500px;
+}
+
+.alert {
+  margin-top: 80px;
 }
 
 /** ヘッダー **/
@@ -24,7 +27,7 @@ body {
 }
 
 .swiper {
-  max-height: 750px;
+  max-height: 725px;
   max-width: 800px;
 }
 
@@ -56,4 +59,9 @@ body {
 /** /admin/movies/:id **/
 .movie_data {
   max-width: 800px;
+}
+
+/** フッター **/
+a {
+  color: #21252A;
 }

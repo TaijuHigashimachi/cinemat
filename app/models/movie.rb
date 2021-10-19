@@ -2,11 +2,11 @@
 #
 # Table name: movies
 #
-# api_id         :integer    not null
-# title          :string     not null
-# trailer_url    :string     not null
+# api_id         :integer    not null uniqueness
+# title          :string     not null uniqueness
+# trailer_url    :string     not null uniqueness
 # poster_url     :string     not null
-# release_date   :date   not null
+# release_date   :date       not null
 # user_score     :float      not null
 # orverview      :text       not null
 # created_at     :datetime   not null

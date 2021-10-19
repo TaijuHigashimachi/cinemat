@@ -6,6 +6,7 @@ gem "rails", '6.0.3.7'
 # Assets
 gem 'webpacker'
 gem 'jquery-rails'
+gem 'sass-rails'
 
 # UI/UX
 gem 'turbolinks'
@@ -22,6 +23,9 @@ gem 'themoviedb-api', '1.3.0'
 
 # Form
 gem 'simple_form'
+
+# Authentication
+gem 'sorcery'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '1.8.1'

@@ -1,5 +1,6 @@
 class Admin::MoviesController < ApplicationController
   before_action :set_movie, only: %i[show edit update destroy]
+  skip_before_action :require_login
   layout 'admin/layouts/application'
 
   require 'net/http'

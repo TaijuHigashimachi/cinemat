@@ -11,7 +11,7 @@
   <p class="text-center fw-bold fs-3"><%= params[:user_input] %>　の検索結果</p>
   <%= content_tag(:p, 'この映画は登録済みです', class: 'text-center fw-bold fs-3 text-danger') if Movie.exists?(api_id: @movie.api_id) %>
   <div class="d-flex">
-    <%= simple_form_for [:admin, @movie], html: { class: "mr-3 w-25"} do |f| %>
+    <%= simple_form_for [:admin, @movie], html: { class: "me-3 w-25"} do |f| %>
       <div class="form-group">
         <%= f.input :api_id %>
         <%= f.input :title %>
