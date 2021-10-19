@@ -1,7 +1,18 @@
 <footer id='footer' class='footer-bottom'>
-  <div class='container'>
+  <div class="text-center">
     <%= link_to root_path do %>
-      <i class="fa fa-home fa-5x"></i>この製品はTMDB APIを使用しており、TMDBによって承認または認定されています。（TMDBのロゴも表示する）
+      <i class="fa fa-home fa-5x mb-3 me-5" style="color: white;"></i>
     <% end %>
+    <%= link_to root_path do %>
+      <i class="fas fa-user fa-5x mb-3" style="color: white;"></i>
+    <% end %>
+  </div>
+  <hr>
+  <div class="d-flex justify-content-center align-items-center">
+    <%= link_to 'https://www.themoviedb.org/', target: :_blank, rel: "noopener noreferrer" do %>
+      <%= image_tag 'logo_tmdb.svg', size: '80x80', class: 'me-3' %>
+    <% end %>
+    このサービスはTMDB APIを使用しており、<br />
+    TMDBによって承認または認定されています。
   </div>
 </footer>

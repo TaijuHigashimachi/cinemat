@@ -5,9 +5,7 @@ gem "rails", '6.0.3.7'
 
 # Assets
 gem 'webpacker'
-gem 'bootstrap', '4.5.3 '
 gem 'jquery-rails'
-gem 'font-awesome-rails'
 
 # UI/UX
 gem 'turbolinks'
