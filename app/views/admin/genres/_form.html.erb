@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @genre] do |f| %>
+<%= simple_form_for [:admin, @genre], :html => { :class => 'mt-3' } do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
     <%= f.input :api_genre_id %>

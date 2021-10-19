@@ -4,7 +4,7 @@
   <td class="align-middle"><%= movie.id %></td>
   <td class="align-middle"><%= movie.api_id %></td>
   <td class="align-middle"><%= movie.title %></td>
-  <td class="align-middle"><%= link_to '詳細', admin_movie_path(movie), class: 'btn btn-primary' %></td>
-  <td class="align-middle"><%= link_to '編集', edit_admin_movie_path(movie), class: 'btn btn-info' %></td>
+  <td class="align-middle"><%= link_to '詳細', admin_movie_path(movie), class: 'btn btn-success' %></td>
+  <td class="align-middle"><%= link_to '編集', edit_admin_movie_path(movie), class: 'btn btn-warning' %></td>
   <td class="align-middle"><%= link_to '削除', admin_movie_path(movie), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: 'btn btn-danger' %></td>
 </tr>

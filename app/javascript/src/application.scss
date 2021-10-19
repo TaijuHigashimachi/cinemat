@@ -1,13 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
 
+/** / **/
 .swiper {
   max-height: 750px;
+  max-width: 800px;
 }
 
 .trailer {
-  width:100%;              /*横幅いっぱいにwidthを指定*/
-  padding-bottom: 56.25%;  /*高さをpaddingで指定(16:9)*/
-  height:0px;              /*高さはpaddingで指定するためheightは0に*/
+  width:100%;
+  padding-bottom: 56.25%;
+  height:0px;
   position: relative;
 }
 
@@ -19,8 +21,7 @@
   height: 100%;
 }
 
-@media screen and (min-width: 1025px) {
-	.swiper {
-    max-width: 800px;
-  }
+/** /admin/movies/:id **/
+.movie_data {
+  max-width: 800px;
 }
