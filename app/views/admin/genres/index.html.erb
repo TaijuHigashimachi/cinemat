@@ -1,15 +1,18 @@
-<div class="text-center m-5">
-  <%= link_to '登録', new_admin_genre_path, class: 'link-primary' %>
+<div class="text-center mt-3">
+  <%= link_to 'ジャンルを登録する', new_admin_genre_path, class: 'btn btn-primary' %>
 </div>
 
 <% if @genres.present? %>
-  <table class="table">
+  <table class="table mt-3">
     <thead>
       <tr>
         <th scope="col"></th>
         <th scope="col">id</th>
         <th scope="col">api_genre_id</th>
         <th scope="col">name</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
