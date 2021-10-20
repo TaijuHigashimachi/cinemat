@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      movie: '映画'
+      genre: 'ジャンル'
+      user: 'ユーザー'
+    attributes:
+      movie:
+        id: 'ID'
+        api_id: 'API_ID'
+        title: '作品名'
+        runtime: '上映時間'
+        user_score: 'ユーザースコア'
+        release_date: '公開日'
+        orverview: '概要'
+        poster_url: 'ポスター'
+        trailer_url: '予告動画'
+      genre:
+        id: 'ID'
+        api_genre_id: 'API_Genre_ID'
+        name: 'ジャンル名'
+      user:
+        id: 'ID'
+        name: '名前'
+        email: 'メールアドレス'
+        avatar: 'プロフィール画像'
+        role: '権限'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+

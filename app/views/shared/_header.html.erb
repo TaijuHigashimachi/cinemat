@@ -9,10 +9,10 @@
       <% end %>
     <% else %>
       <%= link_to login_path, class: 'd-flex me-4 text-light' do %>
-        ログイン
+        <%= (t 'defaults.login') %>
       <% end %>
       <%= link_to new_user_path, class: 'd-flex me-5 text-light' do %>
-        会員登録
+        <%= (t 'defaults.member_registration') %>
       <% end%>
     <% end %>
 </nav>

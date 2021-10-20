@@ -5,8 +5,8 @@
   <div class="d-block w-75">
     <p class="fs-1"><%= @user.name %></p>
     <div class="d-flex">
-      <p><%= link_to 'プロフィールを編集', edit_user_path(@user), class: 'text-white me-5' %></p>
-      <p><%= link_to 'ログアウト', logout_path, method: :delete, class: 'text-white' %></p>
+      <p><%= link_to (t 'defaults.edit_profile'), edit_user_path(@user), class: 'text-white me-5' %></p>
+      <p><%= link_to (t 'defaults.logout'), logout_path, method: :delete, class: 'text-white' %></p>
     </div>
   </div>
 </div>

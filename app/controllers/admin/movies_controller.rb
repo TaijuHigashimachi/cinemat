@@ -15,9 +15,9 @@ class Admin::MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to admin_movies_search_path, success: '映画を登録しました'
+      redirect_to admin_movies_search_path, success: t('.success')
     else
-      render :search, danger: '映画の登録に失敗しました'
+      render :search, danger: t('.fail')
     end
   end
 
@@ -27,15 +27,15 @@ class Admin::MoviesController < ApplicationController
 
   def update
     if @movie.update_attributes(movie_params)
-      redirect_to edit_admin_movie_path(@movie), success: '映画を更新しました'
+      redirect_to edit_admin_movie_path(@movie), success: t('.success')
     else
-      render :edit, danger: '映画の更新に失敗しました'
+      render :edit, danger: t('.fail')
     end
   end
 
   def destroy
     @movie.destroy!
-    redirect_to  admin_movies_path, success: '映画を削除しました'
+    redirect_to  admin_movies_path, success: t('.success')
   end
 
     def search
