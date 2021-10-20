@@ -1,5 +1,6 @@
+<% content_for(:title, t('.title')) %>
 <div class="form-wrapper mx-auto text-center mb-5">
-  <h1><%= (t 'defaults.edit_profile') %></h1>
+  <h1><%= t('.title') %></h1>
 
   <%= simple_form_for @user, :html => { :class => 'mr-3 text-start' } do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
