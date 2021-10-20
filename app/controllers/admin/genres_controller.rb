@@ -1,6 +1,8 @@
 class Admin::GenresController < ApplicationController
   layout 'admin/layouts/application'
 
+  before_action :admin_only
+
   def index
     @genres = Genre.all.order(id: :asc)
   end
