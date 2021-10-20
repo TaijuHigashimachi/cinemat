@@ -5,8 +5,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   process resize_and_pad: [100, 100, "#21252A", "Center"]
   
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  # storage :file
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

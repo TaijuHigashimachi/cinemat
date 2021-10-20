@@ -28,8 +28,13 @@ gem 'simple_form'
 gem 'sorcery'
 
 # Image
-gem 'carrierwave', '2.1.1'
 gem 'mini_magick'
+gem 'carrierwave', '2.1.1'
+gem 'fog-aws', '3.9.0'
+gem 'dotenv-rails', '2.7.6'
+
+# Environment Variable
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '1.8.1'

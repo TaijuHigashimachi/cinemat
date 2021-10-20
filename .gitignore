@@ -38,3 +38,6 @@ yarn-debug.log*
 # Ignore vendor
 /vendor
 /public/uploads
+
+# Ignore environment variable file
+/.env
