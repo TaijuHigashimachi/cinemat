@@ -21,9 +21,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to user_path(@user)
+    if @user.update!(user_params)
+      redirect_to user_path(@user), success: 'プロフィールを更新しました'
     else
+      flash.now[:danger] = 'プロフィールの更新に失敗しました'
       render :show
     end
   end
