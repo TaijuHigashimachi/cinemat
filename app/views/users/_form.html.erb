@@ -2,7 +2,6 @@
   <h1>会員登録</h1>
 
   <%= simple_form_for @user, :html => { :class => 'mr-3 text-start' } do |f| %>
-    <%byebugf%>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
       <%= f.input :name, label_html: { class: 'mt-3' } %>
