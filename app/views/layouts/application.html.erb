@@ -9,9 +9,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg-dark text-white">
     <%= render 'shared/header' %>
-    <%= yield %>
+    <%= render 'shared/flash_message' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= javascript_pack_tag "swiper.js" %>
     <%= render 'shared/footer' %>
   </body>
 </html>

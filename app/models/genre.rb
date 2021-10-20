@@ -2,8 +2,8 @@
 #
 # Table name: genres
 #
-# api_genre_id   :integer    not null
-# name           :string     not null
+# api_genre_id   :integer    not null uniqueness
+# name           :string     not null uniqueness
 # created_at     :datetime   not null
 # updated_at     :datetime   not null
 #

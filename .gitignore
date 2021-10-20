@@ -34,3 +34,10 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore vendor
+/vendor
+/public/uploads
+
+# Ignore environment variable file
+/.env
