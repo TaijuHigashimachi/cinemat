@@ -1,19 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="d-flex">
+  <div class="w-25 text-center">
+    <%= image_tag "default_profile_img.png", class: 'profile_image' %>
+  </div>
+  <div class="d-block w-75">
+    <p class="fs-1"><%= @user.name %></p>
+    <p><%= link_to 'プロフィールを編集する', edit_user_path(@user), class: 'text-white' %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Crypted password:</strong>
-  <%= @user.crypted_password %>
-</p>
-
-<p>
-  <strong>Salt:</strong>
-  <%= @user.salt %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="row text-center movie-status-icon">
+  <div class="col-4 border bg-warning">
+    <%= link_to user_path(@user) do %>
+      <i class="fas fa-plus-circle text-white"></i>
+    <% end %>
+  </div>
+  <div class="col-4 border">
+    <%= link_to user_path(@user) do %>
+      <i class="fas fa-check-circle text-white"></i>
+    <% end %>
+  </div>
+  <div class="col-4 border">
+    <%= link_to user_path(@user) do %>
+      <i class="fas fa-minus-circle text-white"></i>
+    <% end %>
+  </div>
+</div>

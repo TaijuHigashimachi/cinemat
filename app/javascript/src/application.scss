@@ -56,6 +56,16 @@
   padding: 0;
 }
 
+/** /users/:id **/
+.profile_image {
+  width: 100px;
+  border-radius: 50%;
+}
+
+.movie-status-icon {
+  font-size: 50px;
+}
+
 /** /admin/movies/:id **/
 .movie_data {
   max-width: 800px;
