@@ -3,8 +3,10 @@
     <%= link_to root_path do %>
       <i class="fa fa-home fa-5x mb-3 me-5" style="color: white;"></i>
     <% end %>
-    <%= link_to root_path do %>
-      <i class="fas fa-user fa-5x mb-3" style="color: white;"></i>
+    <% if logged_in? %>
+      <%= link_to user_path(current_user) do %>
+        <i class="fas fa-user fa-5x mb-3" style="color: white;"></i>
+      <% end %>
     <% end %>
   </div>
   <hr>
