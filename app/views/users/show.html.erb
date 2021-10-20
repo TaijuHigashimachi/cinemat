@@ -1,10 +1,13 @@
 <div class="d-flex">
   <div class="w-25 text-center">
-    <%= image_tag "default_profile_img.png", class: 'profile_image' %>
+    <%= image_tag "#{@user.avatar}", class: 'profile_image' %>
   </div>
   <div class="d-block w-75">
     <p class="fs-1"><%= @user.name %></p>
-    <p><%= link_to 'プロフィールを編集する', edit_user_path(@user), class: 'text-white' %></p>
+    <div class="d-flex">
+      <p><%= link_to 'プロフィールを編集', edit_user_path(@user), class: 'text-white me-5' %></p>
+      <p><%= link_to 'ログアウト', logout_path, method: :delete, class: 'text-white' %></p>
+    </div>
   </div>
 </div>
 

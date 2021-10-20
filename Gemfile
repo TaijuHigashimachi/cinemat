@@ -27,6 +27,10 @@ gem 'simple_form'
 # Authentication
 gem 'sorcery'
 
+# Image
+gem 'carrierwave', '2.1.1'
+gem 'mini_magick'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '1.8.1'
 

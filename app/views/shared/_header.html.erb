@@ -3,11 +3,9 @@
       シネマト<span class="fs-6">映画の予告を、もっと楽しむ</span>
     <% end %>
     <% if logged_in? %>
-      <%= link_to user_path(current_user), class: 'd-flex me-4 text-light' do %>
-        プロフィール
-      <% end %>
-      <%= link_to logout_path, method: :delete, class: 'd-flex me-4 text-light' do %>
-        ログアウト
+      <%= link_to user_path(current_user), class: 'd-flex align-items-center me-4 text-light' do %>
+        <%= image_tag "#{current_user.avatar}", class: 'profile_image me-2', size: '50x50' %>
+        <%= current_user.name %>
       <% end %>
     <% else %>
       <%= link_to login_path, class: 'd-flex me-4 text-light' do %>
