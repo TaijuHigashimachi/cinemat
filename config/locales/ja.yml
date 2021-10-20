@@ -3,20 +3,23 @@ ja:
     login: 'ログイン'
     logout: 'ログアウト'
     register: '登録する'
-    member_registration: '会員登録'
     index: '一覧へ'
     show: '詳細'
     edit: '編集'
     update: '更新'
     delete: '削除'
     search: '検索'
-    edit_profile: 'プロフィール編集'
-    management_screen: '管理画面'
     message:
         require_login: 'ログインしてください'
         not_authorized: '権限がありません'
         delete_confirm: '削除してもよろしいですか？'
   users:
+    new:
+      title: '会員登録'
+    show:
+      title: 'マイページ'
+    edit:
+      title: 'プロフィール編集'
     create:
       success: 'ユーザーを登録しました'
       fail: 'ユーザーの登録に失敗しました'
@@ -24,12 +27,18 @@ ja:
       success: 'プロフィールを更新しました'
       fail: 'プロフィールの更新に失敗しました'
   user_sessions:
+    new:
+      title: 'ログイン'
     create:
       fail: 'ログインに失敗しました'
     destroy:
       success: 'ログアウトしました'
   admin:
     movies:
+      index:
+        title: '映画一覧'
+      edit:
+        title: '映画情報の編集'
       create:
         success: '映画を登録しました'
         fail: '映画の登録に失敗しました'
@@ -39,6 +48,12 @@ ja:
       destroy:
         success: '映画を削除しました'
     genres:
+      index:
+        title: 'ジャンル一覧'
+      new:
+        title: 'ジャンル作成'
+      edit:
+        title: 'ジャンル編集'
       create:
         success: 'ジャンルを作成しました'
         fail: 'ジャンルを作成できませんでした'

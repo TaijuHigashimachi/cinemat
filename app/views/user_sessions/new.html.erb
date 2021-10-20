@@ -1,6 +1,6 @@
+<% content_for(:title, t('.title')) %>
 <div class="form-wrapper mx-auto text-center mb-5">
   <h1><%= (t 'defaults.login') %></h1>
-
   <%= simple_form_for @user, method: :post, url: login_path, :html => { :class => 'mr-3' } do |f| %>
     <div class="form-group text-start">
       <%= f.input :email, label_html: { class: 'mt-3' } %>

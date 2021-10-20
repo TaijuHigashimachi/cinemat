@@ -1,3 +1,4 @@
+<% content_for(:title, t('.title')) %>
 <div class="d-flex">
   <div class="w-25 text-center">
     <%= image_tag "#{@user.avatar}", class: 'profile_image' %>
@@ -5,7 +6,7 @@
   <div class="d-block w-75">
     <p class="fs-1"><%= @user.name %></p>
     <div class="d-flex">
-      <p><%= link_to (t 'defaults.edit_profile'), edit_user_path(@user), class: 'text-white me-5' %></p>
+      <p><%= link_to (t 'users.edit.title'), edit_user_path(@user), class: 'text-white me-5' %></p>
       <p><%= link_to (t 'defaults.logout'), logout_path, method: :delete, class: 'text-white' %></p>
     </div>
   </div>
