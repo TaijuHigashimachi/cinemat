@@ -1,10 +1,7 @@
 <div class="swiper-slide">
-  <%# 予告動画 %>
   <div class="trailer">
     <iframe src="https://www.youtube.com/embed/<%= movie.trailer_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
-
-  <%# 作品名 %>
   <div class="text-start mt-3">
     <div class="h2">
       <%= movie.title %>
@@ -25,7 +22,6 @@
         あらすじを見る<i class="fa fa-chevron-down"></i>
       </button>
     </div>
-    <%# 作品詳細 %>
     <div class="collapse mt-3" id="movie_detail">
       <div class="card card-body text-start">
         <%= movie.overview %>

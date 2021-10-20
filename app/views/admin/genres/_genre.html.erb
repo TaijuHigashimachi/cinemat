@@ -4,5 +4,5 @@
   <td><%= genre.api_genre_id %></td>
   <td><%= genre.name %></td>
   <td class="align-middle"><%= link_to '編集', edit_admin_genre_path(genre), class: 'btn btn-warning' %></td>
-  <td class="align-middle"><%= link_to '削除', admin_genre_path(genre), method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: 'btn btn-danger' %></td>
+  <td class="align-middle"><%= link_to '削除', admin_genre_path(genre), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %></td>
 </tr>

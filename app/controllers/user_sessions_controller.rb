@@ -11,13 +11,13 @@ class UserSessionsController < ApplicationController
       redirect_back_or_to root_path
     else
       @user = User.new(email: params[:user][:email])
-      flash.now[:danger] = 'ログインに失敗しました'
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, success: 'ログアウトしました'
+    redirect_to root_path, success: t('.success')
   end
 end

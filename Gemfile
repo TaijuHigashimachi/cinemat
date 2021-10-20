@@ -11,6 +11,7 @@ gem 'sass-rails'
 # UI/UX
 gem 'turbolinks'
 gem 'jbuilder'
+gem 'rails-i18n', '6.0.0'
 
 # Application server
 gem 'puma', '~> 3.11'

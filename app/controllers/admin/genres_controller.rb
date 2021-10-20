@@ -12,9 +12,9 @@ class Admin::GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to new_admin_genre_path, success: 'ジャンルを作成しました'
+      redirect_to new_admin_genre_path, success: t('.success')
     else
-      flash.now['danger'] = 'ジャンルを作成できませんでした'
+      flash.now['danger'] = t('.fail')
       render :new
     end
   end

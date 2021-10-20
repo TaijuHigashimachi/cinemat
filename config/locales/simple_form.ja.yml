@@ -1,0 +1,12 @@
+ja:
+  simple_form:
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "エラーがあります。確認してください。"
+    labels:
+      user:
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
