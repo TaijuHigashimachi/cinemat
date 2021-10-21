@@ -14,6 +14,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
   mount_uploader :avatar, AvatarUploader
 
+  has_many :movie_statuses, dependent: :destroy
+
   validates :name, presence: true, length: { maximum: 10 }
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, on: :create

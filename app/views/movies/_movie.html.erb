@@ -30,6 +30,23 @@
     </div>
   </div>
   <hr>
+  <div class="row text-center movie-status-icon m-1">
+    <div class="col-4 border">
+      <%= link_to movie_statuses_path(movie_id: movie.id, user_id: current_user.id, status: 'watch'), method: :post, local: true do %>
+        <i class="fas fa-plus-circle text-white"></i>
+      <% end %>
+    </div>
+    <div class="col-4 border">
+      <%= link_to movie_statuses_path(movie_id: movie.id, user_id: current_user.id, status: 'watched'), method: :post, local: true do %>
+        <i class="fas fa-check-circle text-white"></i>
+      <% end %>
+    </div>
+    <div class="col-4 border">
+      <%= link_to movie_statuses_path(movie_id: movie.id, user_id: current_user.id, status: 'uninterested'), method: :post, local: true do %>
+        <i class="fas fa-minus-circle text-white"></i>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <script>

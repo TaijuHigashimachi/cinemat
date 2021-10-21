@@ -14,6 +14,7 @@
 #
 
 class Movie < ApplicationRecord
+  has_many :movie_statuses, dependent: :destroy
   has_many :movie_genres, dependent: :destroy
   has_many :genres, through: :movie_genres
   accepts_nested_attributes_for :movie_genres, allow_destroy: true
