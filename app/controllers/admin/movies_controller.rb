@@ -56,7 +56,7 @@ class Admin::MoviesController < ApplicationController
       @movie.api_id = @detail_result['id']
       @movie.title = @detail_result['title']
       @movie.runtime = @detail_result['runtime']
-      @movie.user_score = @detail_result['vote_average'].to_i * 10
+      @movie.user_score = @detail_result['vote_average'] * 10
       @movie.release_date = @detail_result['release_date']
       @movie.overview = @detail_result['overview']
       @movie.poster_url = @detail_result['poster_path']
