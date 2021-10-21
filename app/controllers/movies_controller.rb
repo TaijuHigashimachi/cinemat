@@ -3,12 +3,14 @@ class MoviesController < ApplicationController
 
   def index
     if cookies['cinemat']
-      view_history = cookies['cinemat']
-      last_views_movie = Movie.find(view_history.to_i)
-      next_movie = last_views_movie.next
+      # ブラウザを閉じる前に観ていた映画を取得
+      last_viewed_movie = Movie.find(cookies['cinemat'].to_i)
+      # 全映画をユーザースコア順に並べて取得
       all_movies = Movie.all.order(user_score: :desc)
-      @movies = all_movies[all_movies.index(next_movie)..all_movies.index(all_movies.last)]
+      # 全映画の中から、ブラウザを閉じる前に観ていた映画の次の映画から、最後のデータまで取得
+      @movies = all_movies[all_movies.index(last_viewed_movie) + 1..all_movies.index(all_movies.last)]
     else
+      # 全映画をユーザースコア順に並べて取得
       @movies = Movie.all.order(user_score: :desc)
     end
   end

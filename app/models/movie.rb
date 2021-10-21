@@ -23,8 +23,4 @@ class Movie < ApplicationRecord
   validates :trailer_url, presence: true, uniqueness: true
   validates :poster_url , presence: true, uniqueness: true
   validates :release_date , presence: true, uniqueness: true
-
-  def next
-    Movie.where('user_score < ?', self.user_score).order('user_score DESC').first
-  end
 end
