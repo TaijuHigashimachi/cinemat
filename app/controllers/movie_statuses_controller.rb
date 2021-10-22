@@ -6,8 +6,7 @@ class MovieStatusesController < ApplicationController
   end
 
   def destroy
-    movie = current_user.movie_statuses.find(params[:id]).movie
-    MovieStatus.destroy!(movie_id: movie.id, user_id: current_user.id)
+    MovieStatus.find_by(movie_id: params[:movie_id], user_id: params[:user_id]).destroy!
     redirect_back fallback_location: root_path
   end
 end
