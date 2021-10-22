@@ -29,8 +29,7 @@
       </div>
     </div>
   </div>
-  <hr>
-  <div class="row text-center movie-status-icon m-1">
+  <div class="d-flex text-center fs-1 m-1">
     <div class="col-4 border">
       <%= link_to movie_statuses_path(movie_id: movie.id, user_id: current_user.id, status: 'watch'), method: :post, local: true do %>
         <i class="fas fa-plus-circle text-white"></i>
