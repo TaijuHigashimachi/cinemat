@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
-  before_action :set_user, only: %i[show edit update watched]
-  before_action :set_movie_statuses, only: %i[show watched]
+  before_action :set_user, only: %i[show edit update watched uninterested]
+  before_action :set_movie_statuses, only: %i[show watched uninterested]
 
   def show
     # movie_statusesのデータから、ステータスがwatchのものだけ取得
@@ -26,6 +26,17 @@ class UsersController < ApplicationController
     end
 
     @watched_movies = Movie.where(id: movie_id_array)
+  end
+
+  def uninterested
+    movie_status_uninterested = @movie_statuses.where(status: 'uninterested')
+
+    movie_id_array = []
+    movie_status_uninterested.size.times do |i|
+      movie_id_array.push(movie_status_uninterested[i]['movie_id'])
+    end
+
+    @uninterested_movies = Movie.where(id: movie_id_array)
   end
 
   def new

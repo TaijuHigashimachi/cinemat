@@ -6,7 +6,6 @@ class MovieStatusesController < ApplicationController
   end
 
   def destroy
-    byebug
     MovieStatus.find_by(movie_id: params[:movie_id], user_id: params[:user_id]).destroy!
     redirect_back fallback_location: root_path
   end
