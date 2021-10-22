@@ -15,6 +15,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   has_many :movie_statuses, dependent: :destroy
+  has_many :movies, through: :movie_statuses
 
   validates :name, presence: true, length: { maximum: 10 }
   validates :email, presence: true, uniqueness: true
