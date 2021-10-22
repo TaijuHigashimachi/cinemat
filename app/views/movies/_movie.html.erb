@@ -19,11 +19,11 @@
         <%= movie.genres[1]['name'] %>
         <%= movie.genres[2]['name'] %>
       </div>
-      <button type="button" data-bs-toggle="collapse" data-bs-target="#js-movie_detail_<%= movie.id %>" aria-expanded="false" aria-controls="#js-movie_detail_<%= movie.id %>" class="js-movie_detail_<%= movie.id %> movie_detail text-white">
+      <button type="button" data-bs-toggle="collapse" data-bs-target="#js-movie-detail-<%= movie.id %>" aria-expanded="false" aria-controls="#js-movie-detail-<%= movie.id %>" class="js-movie-detail-<%= movie.id %> movie-detail text-white">
         あらすじを見る<i class="fa fa-chevron-down"></i>
       </button>
     </div>
-    <div class="collapse mt-3" id="js-movie_detail_<%= movie.id %>">
+    <div class="collapse mt-3" id="js-movie-detail-<%= movie.id %>">
       <div class="card card-body text-start">
         <%= movie.overview %>
       </div>

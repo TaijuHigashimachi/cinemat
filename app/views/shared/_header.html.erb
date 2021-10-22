@@ -4,7 +4,7 @@
     <% end %>
     <% if logged_in? %>
       <%= link_to user_path(current_user), class: 'd-flex align-items-center me-4 text-light' do %>
-        <%= image_tag "#{current_user.avatar}", class: 'profile_image me-2', size: '50x50' %>
+        <%= image_tag "#{current_user.avatar}", class: 'profile-image me-2', size: '50x50' %>
         <%= current_user.name %>
       <% end %>
     <% else %>
