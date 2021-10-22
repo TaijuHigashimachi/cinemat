@@ -18,6 +18,10 @@ ja:
       title: '会員登録'
     show:
       title: 'マイページ'
+    watched:
+      title: '観たリスト　|　マイページ'
+    uninterested:
+      title: '興味なしリスト　|　マイページ'
     edit:
       title: 'プロフィール編集'
     create:

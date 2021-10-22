@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
 
-  resources :users, only: %i[new create show edit update]
+  resources :users, only: %i[new create show edit update] do
+    get '/watched', to: 'users#watched'
+    get '/uninterested', to: 'users#uninterested'
+  end
+  resources :movie_statuses, only: %i[create update destroy]
 
   namespace :admin do
     root 'movies#index'

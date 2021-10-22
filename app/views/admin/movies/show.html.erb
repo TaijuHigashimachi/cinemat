@@ -4,7 +4,7 @@
   <%= link_to (t 'defaults.delete'), admin_movie_path(@movie), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
 </div>
 
-<div class="movie_data mx-auto mt-3 border">
+<div class="movie-data mx-auto mt-3 border">
     <div class="d-flex">
       <div class="poster w-25">
         <%= image_tag "https://image.tmdb.org/t/p/w1280/#{@movie.poster_url}", class: "card-img" %>

@@ -1,8 +1,43 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
-  before_action :set_user, only: %i[show edit update]
+  before_action :set_user, only: %i[show edit update watched uninterested]
+  before_action :set_movie_statuses, only: %i[show watched uninterested]
 
-  def show; end
+  def show
+    # movie_statusesのデータから、ステータスがwatchのものだけ取得
+    @movie_status_watches = @movie_statuses.where(status: 'watch')
+
+    # ステータスがwatchのデータのmovie_idを配列に保存
+    movie_id_array = []
+    @movie_status_watches.size.times do |i|
+      movie_id_array.push(@movie_status_watches[i]['movie_id'])
+    end
+
+    # movie_idの配列でwhere検索
+    @watch_movies = Movie.where(id: movie_id_array)
+  end
+
+  def watched
+    movie_status_watched = @movie_statuses.where(status: 'watched')
+
+    movie_id_array = []
+    movie_status_watched.size.times do |i|
+      movie_id_array.push(movie_status_watched[i]['movie_id'])
+    end
+
+    @watched_movies = Movie.where(id: movie_id_array)
+  end
+
+  def uninterested
+    movie_status_uninterested = @movie_statuses.where(status: 'uninterested')
+
+    movie_id_array = []
+    movie_status_uninterested.size.times do |i|
+      movie_id_array.push(movie_status_uninterested[i]['movie_id'])
+    end
+
+    @uninterested_movies = Movie.where(id: movie_id_array)
+  end
 
   def new
     @user = User.new
@@ -32,10 +67,15 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 
   def user_params
     params.require(:user).permit(:name, :email, :avatar, :role, :password, :password_confirmation)
+  end
+
+  def set_movie_statuses
+    # current_userが登録しているmovie_statusesのデータを取得
+    @movie_statuses = current_user.movie_statuses
   end
 end
