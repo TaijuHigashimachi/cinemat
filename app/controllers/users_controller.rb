@@ -5,12 +5,12 @@ class UsersController < ApplicationController
 
   def show
     # movie_statusesのデータから、ステータスがwatchのものだけ取得
-    movie_status_watches = @movie_statuses.where(status: 'watch')
+    @movie_status_watches = @movie_statuses.where(status: 'watch')
 
     # ステータスがwatchのデータのmovie_idを配列に保存
     movie_id_array = []
-    movie_status_watches.size.times do |i|
-      movie_id_array.push(movie_status_watches[i]['movie_id'])
+    @movie_status_watches.size.times do |i|
+      movie_id_array.push(@movie_status_watches[i]['movie_id'])
     end
 
     # movie_idの配列でwhere検索

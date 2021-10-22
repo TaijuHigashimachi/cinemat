@@ -5,8 +5,20 @@ class MovieStatusesController < ApplicationController
     redirect_back fallback_location: root_path
   end
 
+  def update
+    @movie_status = MovieStatus.find_by(movie_id: params[:movie_id])
+    @movie_status.update!(movie_status_params)
+    redirect_back fallback_location: user_path(current_user)
+  end
+
   def destroy
     MovieStatus.find_by(movie_id: params[:movie_id], user_id: params[:user_id]).destroy!
     redirect_back fallback_location: root_path
+  end
+
+  private
+
+  def movie_status_params
+    params.permit(:status)
   end
 end
