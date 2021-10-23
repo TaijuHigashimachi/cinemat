@@ -15,7 +15,7 @@ ja:
         delete_confirm: '削除してもよろしいですか？'
   users:
     new:
-      title: '会員登録'
+      title: 'ユーザー登録'
     show:
       title: 'マイページ'
     watched:
