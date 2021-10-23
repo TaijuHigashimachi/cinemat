@@ -1,6 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+a {
+  color: transparent;
+  &:hover {
+    color: transparent;
+  }
+}
+
 .form-wrapper {
   max-width: 500px;
 }
@@ -64,9 +71,4 @@
 /** /admin/movies/:id **/
 .movie-data {
   max-width: 800px;
-}
-
-/** フッター **/
-a {
-  color: #21252A;
 }
