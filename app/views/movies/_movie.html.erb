@@ -51,7 +51,7 @@
 <script>
   function pointerMove(){
     let movieId = document.querySelector('.js-movie-id-<%= movie.id %>').innerHTML;
-    document.cookie = 'cinemat=' + movieId
+    document.cookie = 'cinemat_movie_id=' + movieId
   }
 
   document.querySelector('.js-touch-area-<%=  movie.id %>').addEventListener('pointermove', pointerMove)
