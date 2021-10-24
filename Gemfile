@@ -37,6 +37,9 @@ gem 'fog-aws', '3.9.0'
 gem 'dotenv-rails', '2.7.6'
 gem 'config', '2.2.3'
 
+# Search
+gem 'ransack', '2.3.2'
+
 gem 'rexml', '3.2.4'
 
 # Reduces boot times through caching; required in config/boot.rb

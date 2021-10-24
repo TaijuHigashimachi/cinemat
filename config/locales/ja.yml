@@ -28,6 +28,8 @@ ja:
         fail: '映画の更新に失敗しました'
       destroy:
         success: '映画を削除しました'
+      search:
+        title: '検索結果'
     genres:
       index:
         title: 'ジャンル一覧'

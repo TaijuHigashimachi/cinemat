@@ -17,10 +17,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'movies#index'
-
-    get 'movies/search', to: 'movies#search'
-
-    resources :movies, only: %i[index create show edit update destroy]
+    get 'movies/api_search', to: 'movies#api_search'
+    
+    resources :movies, only: %i[index create show edit update destroy] do
+      collection do
+        get '/search', to: 'movies#search'
+      end
+    end
     resources :genres, only: %i[index new create edit update destroy]
   end
 end

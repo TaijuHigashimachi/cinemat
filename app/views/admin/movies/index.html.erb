@@ -1,20 +1,18 @@
-<% content_for(:title, t('.title')) %>
-<div class="text-center mt-3">
-  <%= link_to (t 'defaults.register'), admin_movies_search_path, class: 'btn btn-primary' %>
-</div>
+<%= render 'search_form' %>
 
 <% if @movies.present? %>
   <table class="table mt-3">
     <thead>
       <tr>
-        <th scope="col"></th>
-        <th scope="col">poster</th>
-        <th scope="col">id</th>
-        <th scope="col">api_id</th>
-        <th scope="col">title</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-        <th scope="col"></th>
+        <th></th>
+        <th>poster</th>
+        <th>id</th>
+        <th>api_id</th>
+        <th>title</th>
+        <th>score</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
