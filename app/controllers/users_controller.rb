@@ -56,11 +56,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update!(user_params)
+    if @user.update(user_params)
       redirect_to user_path(@user), success: t('.success')
     else
       flash.now[:danger] = t('.fail')
-      render :show
+      render :edit
     end
   end
 
