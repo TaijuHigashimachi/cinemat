@@ -32,10 +32,12 @@ gem 'sorcery'
 gem 'mini_magick'
 gem 'carrierwave', '2.1.1'
 gem 'fog-aws', '3.9.0'
+
+# Configuration
 gem 'dotenv-rails', '2.7.6'
+gem 'config', '2.2.3'
 
-# Environment Variable
-
+gem 'rexml', '3.2.4'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '1.8.1'
@@ -52,6 +54,9 @@ end
 group :development do
   gem 'listen', '3.6.0'
   gem 'web-console'
+
+  # Email
+  gem 'letter_opener_web', '1.3.4'
 end
 
 group :test do
