@@ -9,34 +9,11 @@ ja:
     update: '更新'
     delete: '削除'
     search: '検索'
+    password_reset: 'パスワードリセット ｜ シネマト'
     message:
         require_login: 'ログインしてください'
         not_authorized: '権限がありません'
         delete_confirm: '削除してもよろしいですか？'
-  users:
-    new:
-      title: 'ユーザー登録'
-    show:
-      title: 'マイページ'
-    watched:
-      title: '観たリスト　|　マイページ'
-    uninterested:
-      title: '興味なしリスト　|　マイページ'
-    edit:
-      title: 'プロフィール編集'
-    create:
-      success: 'ユーザーを登録しました'
-      fail: 'ユーザーの登録に失敗しました'
-    update:
-      success: 'プロフィールを更新しました'
-      fail: 'プロフィールの更新に失敗しました'
-  user_sessions:
-    new:
-      title: 'ログイン'
-    create:
-      fail: 'ログインに失敗しました'
-    destroy:
-      success: 'ログアウトしました'
   admin:
     movies:
       index:
@@ -61,3 +38,39 @@ ja:
       create:
         success: 'ジャンルを作成しました'
         fail: 'ジャンルを作成できませんでした'
+  users:
+    new:
+      title: 'ユーザー登録'
+    show:
+      title: 'マイページ'
+    watched:
+      title: '観たリスト　|　マイページ'
+    uninterested:
+      title: '興味なしリスト　|　マイページ'
+    edit:
+      title: 'プロフィール編集'
+    create:
+      success: 'ユーザーを登録しました'
+      fail: 'ユーザーの登録に失敗しました'
+    update:
+      success: 'プロフィールを更新しました'
+      fail: 'プロフィールの更新に失敗しました'
+  user_sessions:
+    new:
+      title: 'ログイン'
+      link: 'パスワードを忘れた方はこちら'
+    create:
+      fail: 'ログインに失敗しました'
+    destroy:
+      success: 'ログアウトしました'
+  password_resets:
+    new:
+      title: 'パスワードリセット申請'
+      submit: '送信'
+    edit:
+      title: 'パスワードリセット'
+    create:
+      success: 'パスワードリセット用のメールを送信しました'
+    update:
+      success: 'パスワードを変更しました'
+      fail: 'パスワードの変更に失敗しました'

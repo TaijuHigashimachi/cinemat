@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
-  root 'movies#index'
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
+  root 'movies#index'
+  
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+  
+  resources :movie_statuses, only: %i[create update destroy]
+  resources :password_resets, only: %i[new create edit update]
 
   resources :users, only: %i[new create show edit update] do
     get '/watched', to: 'users#watched'
     get '/uninterested', to: 'users#uninterested'
   end
-  resources :movie_statuses, only: %i[create update destroy]
 
   namespace :admin do
     root 'movies#index'
