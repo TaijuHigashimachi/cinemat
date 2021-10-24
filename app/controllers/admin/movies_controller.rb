@@ -3,6 +3,7 @@ class Admin::MoviesController < ApplicationController
 
   before_action :admin_only
   before_action :set_movie, only: %i[show edit update destroy]
+  before_action :set_q, only: [:index, :search]
 
   require 'net/http'
   require 'uri'
@@ -10,15 +11,15 @@ class Admin::MoviesController < ApplicationController
 
   
   def index
-    @movies = Movie.all
+    @movies = Movie.all.order(user_score: :desc)
   end
 
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      redirect_to admin_movies_search_path, success: t('.success')
+      redirect_to admin_movies_api_search_path, success: t('.success')
     else
-      render :search, danger: t('.fail')
+      render :api_search, danger: t('.fail')
     end
   end
 
@@ -39,7 +40,11 @@ class Admin::MoviesController < ApplicationController
     redirect_to  admin_movies_path, success: t('.success')
   end
 
-    def search
+  def search
+    @movies = @q.result.order(user_score: :desc)
+  end
+
+  def api_search
     if params[:user_input].present?
       query = URI.encode_www_form(q: "#{params[:user_input]}").delete_prefix('q=')
       url = "https://api.themoviedb.org/3/search/movie?api_key=fffa263e9395a32c7352e5ee7a5b8df3&language=ja-JP&page=1&query=#{query}"
@@ -76,5 +81,9 @@ class Admin::MoviesController < ApplicationController
 
   def set_movie
     @movie = Movie.find(params[:id])
+  end
+
+  def set_q
+    @q = Movie.ransack(params[:q])
   end
 end

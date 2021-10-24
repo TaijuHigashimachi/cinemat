@@ -1,93 +1,24 @@
-<div class="text-center mt-3">
-  <p class="mr-3 fw-bold">The Movie Databaseから検索</p>
-  <%= form_tag(admin_movies_search_path, method: :get) do %>
-    <%= search_field_tag :user_input, nil, placeholder: 'Movie Title...' %>
-    <%= submit_tag (t 'defaults.search') %>
-  <% end %>
-</div>
+<%= render 'search_form' %>
 
-<%if params[:user_input].present? %>
-  <hr>
-  <p class="text-center fw-bold fs-3"><%= params[:user_input] %>　の検索結果</p>
-  <%= content_tag(:p, 'この映画は登録済みです', class: 'text-center fw-bold fs-3 text-danger') if Movie.exists?(api_id: @movie.api_id) %>
-  <div class="d-flex">
-    <%= simple_form_for [:admin, @movie], html: { class: "me-3 w-25"} do |f| %>
-      <div class="form-group">
-        <%= f.input :api_id %>
-        <%= f.input :title %>
-        <%= f.input :runtime %>
-        <%= f.input :user_score %>
-        <%= f.input :release_date %>
-        <%= f.input :overview %>
-        <%= f.input :poster_url %>
-        <%= f.input :trailer_url %>
-        <%= f.fields_for :movie_genres do |ff| %>
-          <%= ff.collection_select :genre_id, Genre.all, :id, :name  %>
-        <% end %>
-        <%= f.button :submit, class: 'btn btn-primary mt-3' %>
-      </div>
-    <% end %>
-
-    <div class="movie-data border w-75">
-      <div class="d-flex">
-        <div class="poster w-25">
-          <% if @detail_result['poster_path'].present? %>
-              <%= image_tag 'https://image.tmdb.org/t/p/w1280' + @detail_result['poster_path'],class: "card-img" %>
-          <%end%>
-        </div>
-        <div class="poster w-75">
-          <% if @detail_result['videos'].present? %>
-            <iframe src="https://www.youtube.com/embed/<%= @detail_result['videos']['results'][0]['key'] %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-100 h-100"></iframe>
-          <%end%>
-        </div>
-      </div>
-      <div class="detail p-3">
-        <div class="d-flex">
-          <div class="d-block border-right p-1 m-1 col-3">
-            <% if @detail_result['id'].present? %>
-              <p class="h5 text-center">api_id</p>
-              <p class="text-center"><%= @detail_result['id'] %></p>
-            <%end%>
-          </div>
-          <div class="d-block border-right p-1 m-1 col-3">
-            <% if @detail_result['runtime'].present? %>
-              <p class="h5 text-center">runtime</p>
-              <p class="text-center"><%= @detail_result['runtime'] %></p>
-            <%end%>
-          </div>
-          <div class="d-block border-right p-1 m-1 col-3">
-            <% if @detail_result['vote_average'].present? %>
-              <p class="h5 text-center">user_score</p>
-              <p class="text-center"><%= @detail_result['vote_average'] * 10 %></p>
-            <%end%>
-          </div>
-          <div class="d-block p-1 m-1 col-3">
-            <% if @detail_result['release_date'].present? %>
-              <p class="h5 text-center">release_date</p>
-              <p class="text-center"><%= @detail_result['release_date'] %></p>
-            <%end%>
-          </div>
-        </div>
-        <hr>
-        <% if @detail_result['title'].present? %>
-          <p class="h3 ">title</p>
-          <p><%= @detail_result['title'] %></p>
-        <%end%>
-        <hr>
-        <% if @detail_result['genres'].present? %>
-          <p class="h3">genres</p>
-          <div class="d-flex">
-            <% @detail_result['genres'].each do |genre| %>
-              <p class="mr-2"><%= genre['name'] %></p>
-            <% end %>
-          </div>
-        <%end%>
-        <hr>
-        <% if @detail_result['overview'].present? %>
-          <p class="h3">overview</p>
-          <p><%= @detail_result['overview'] %></p>
-        <%end%>
-      </div>
-    </div>
-  </div>
-<%end%>
+<% if @movies.present? %>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th></th>
+        <th>poster</th>
+        <th>id</th>
+        <th>api_id</th>
+        <th>title</th>
+        <th>score</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @movies %>
+    </tbody>
+  </table>
+<% else %>
+  <p>映画は登録されていません</p>
+<% end %>
