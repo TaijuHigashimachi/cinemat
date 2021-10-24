@@ -10,3 +10,9 @@ ja:
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
+    hints:
+      user:
+        name: '10文字以内'
+        password: '4文字以上'
+        avatar: 'ファイル形式：jpg jpeg gif png　ファイルサイズ：5MB以下'
+
