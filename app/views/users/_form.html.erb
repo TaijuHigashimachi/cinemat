@@ -4,13 +4,13 @@
   <%= simple_form_for @user, :html => { :class => 'mr-3 text-start' } do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
-      <%= f.input :name, label_html: { class: 'mt-3' } %>
-      <%= f.input :email, label_html: { class: 'mt-3' } %>
-      <%= f.input :password, label_html: { class: 'mt-3' } %>
-      <%= f.input :password_confirmation, label_html: { class: 'mt-3' } %>
+      <%= f.input :name, label_html: { class: 'mt-3' }, hint: t('simple_form.hints.user.name') %>
+      <%= f.input :email, label_html: { class: 'mt-4' } %>
+      <%= f.input :password, label_html: { class: 'mt-4' }, hint: t('simple_form.hints.user.password') %>
+      <%= f.input :password_confirmation, label_html: { class: 'mt-4' } %>
     </div>
     <div class="form-group text-center">
-      <%= f.button :submit, class: 'btn btn-primary mt-3' %>
+      <%= f.button :submit, class: 'btn btn-primary mt-4' %>
     </div>
   <% end %>
 </div>
