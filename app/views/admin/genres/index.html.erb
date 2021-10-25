@@ -1,0 +1,24 @@
+<% content_for(:title, t('.title')) %>
+<div class="text-center mt-3">
+  <%= link_to (t 'defaults.register'), new_admin_genre_path, class: 'btn btn-primary' %>
+</div>
+<% if @genres.present? %>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">id</th>
+        <th scope="col">api_genre_id</th>
+        <th scope="col">name</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @genres %>
+    </tbody>
+  </table>
+<% else %>
+  <p>ジャンルは登録されていません</p>
+<% end %>

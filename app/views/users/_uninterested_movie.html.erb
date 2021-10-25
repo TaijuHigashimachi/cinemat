@@ -1,0 +1,29 @@
+<div class="d-flex">
+  <div class="col-6 me-2">
+    <div class="trailer">
+      <iframe src="https://www.youtube.com/embed/<%= uninterested_movie.trailer_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="h3 mt-3 ms-1">
+      <%= uninterested_movie.title %>
+    </div>
+    <div class="d-flex text-center fs-3 m-1">
+      <div class="col-4 border">
+        <%= link_to movie_status_path(id: current_user.id, movie_id: uninterested_movie.id, user_id: current_user.id, status: 'watch'), method: :put, local: true do %>
+          <i class="fas fa-plus-circle text-white"></i>
+        <% end %>
+      </div>
+      <div class="col-4 border">
+        <%= link_to movie_status_path(id: current_user.id, movie_id: uninterested_movie.id, user_id: current_user.id, status: 'watched'), method: :put, local: true do %>
+          <i class="fas fa-check-circle text-white"></i>
+        <% end %>
+      </div>
+      <div class="col-4 border bg-warning">
+        <%= link_to movie_status_path(id: current_user.id, movie_id: uninterested_movie.id, user_id: current_user.id, status: 'uninterested'), method: :delete, local: true do %>
+          <i class="fas fa-minus-circle text-white"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
