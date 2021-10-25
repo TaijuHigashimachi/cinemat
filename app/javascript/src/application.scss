@@ -1,0 +1,79 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+a {
+  color: transparent;
+  &:hover {
+    color: transparent;
+  }
+}
+
+.form-wrapper {
+  max-width: 500px;
+}
+
+.alert {
+  margin-top: 80px;
+}
+
+/** header **/
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+}
+
+.customize-font {
+  font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
+}
+
+/** / **/
+.container {
+  margin-top: 100px;
+}
+
+.swiper {
+  max-height: 725px;
+  max-width: 800px;
+}
+
+.trailer {
+  width:100%;
+  padding-bottom: 56.25%;
+  height:0px;
+  position: relative;
+}
+
+.trailer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.movie-detail,
+.card {
+  border: none;
+  background-color: transparent;
+}
+
+.card-body {
+  padding: 0;
+}
+
+/** /users/new **/
+.text-muted {
+  color: #C0C0C0 !important;
+}
+
+/** /users/:id **/
+.profile-image {
+  border-radius: 50%;
+}
+
+/** /admin/movies/:id **/
+.movie-data {
+  max-width: 800px;
+}

@@ -1,0 +1,19 @@
+<% content_for(:title, t('.title')) %>
+<div class="text-center mt-3">
+  <%= link_to (t 'defaults.index'), admin_movies_path, class: 'btn btn-secondary' %>
+  <%= link_to (t 'defaults.show'), admin_movie_path(@movie), class: 'btn btn-success' %>
+  <%= link_to (t 'defaults.delete'), admin_movie_path(@movie), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+</div>
+
+<%= simple_form_for [:admin, @movie], :html => { :class => 'mt-3' } do |f| %>
+  <div class="form-group">
+    <%= f.input :title, label_html: { class: 'mt-3' } %>
+    <%= f.input :poster_url, label_html: { class: 'mt-3' } %>
+    <%= f.input :trailer_url, label_html: { class: 'mt-3' } %>
+    <%= f.input :api_id, label_html: { class: 'mt-3' } %>
+    <%= f.input :release_date, discard_hour: true, discard_minute: true, label_html: { class: 'mt-3' } %>
+    <%= f.input :user_score, label_html: { class: 'mt-3' } %>
+    <%= f.input :overview, label_html: { class: 'mt-3' } %>
+    <%= f.button :submit, (t 'defaults.update'), class: 'btn btn-primary mt-3' %>
+  </div>
+<% end %>

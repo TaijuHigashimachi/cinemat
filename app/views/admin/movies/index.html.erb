@@ -1,0 +1,26 @@
+<% content_for(:title, t('.title')) %>
+<%= render 'search_form' %>
+<%== pagy_bootstrap_nav(@pagy) %>
+<% if @movies.present? %>
+  <table class="table mt-3">
+    <thead>
+      <tr>
+        <th></th>
+        <th>poster</th>
+        <th>id</th>
+        <th>api_id</th>
+        <th>title</th>
+        <th>score</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @movies %>
+    </tbody>
+  </table>
+<% else %>
+  <p>映画は登録されていません</p>
+<% end %>
+<%== pagy_bootstrap_nav(@pagy) %>

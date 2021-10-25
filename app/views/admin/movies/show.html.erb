@@ -1,0 +1,50 @@
+<div class="text-center mt-3">
+  <%= link_to (t 'defaults.index'), admin_movies_path, class: 'btn btn-secondary' %>
+  <%= link_to (t 'defaults.edit'), edit_admin_movie_path(@movie), class: 'btn btn-warning' %>
+  <%= link_to (t 'defaults.delete'), admin_movie_path(@movie), method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, class: 'btn btn-danger' %>
+</div>
+
+<div class="movie-data mx-auto mt-3 border">
+    <div class="d-flex">
+      <div class="poster w-25">
+        <%= image_tag "https://image.tmdb.org/t/p/w1280/#{@movie.poster_url}", class: "card-img" %>
+      </div>
+      <div class="poster w-75">
+        <iframe src="https://www.youtube.com/embed/<%= @movie.trailer_url%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-100 h-100"></iframe>
+      </div>
+    </div>
+    <div class="detail p-3">
+      <div class="d-flex">
+        <div class="d-block border-right p-1 m-1 col-3">
+          <p class="h5 text-center">api_id</p>
+          <p class="text-center"><%= @movie.api_id %></p>
+        </div>
+        <div class="d-block border-right p-1 m-1 col-3">
+          <p class="h5 text-center">user_score</p>
+          <p class="text-center"><%= @movie.runtime %></p>
+        </div>
+        <div class="d-block border-right p-1 m-1 col-3">
+          <p class="h5 text-center">user_score</p>
+          <p class="text-center"><%= @movie.user_score %></p>
+        </div>
+        <div class="d-block p-1 m-1 col-3">
+          <p class="h5 text-center">release_date</p>
+          <p class="text-center"><%= @movie.release_date %></p>
+        </div>
+      </div>
+      <hr>
+        <p class="h3 ">title</p>
+        <p><%= @movie.title %></p>
+      <hr>
+        <p class="h3">genres</p>
+        <div class="d-flex">
+          <% @movie.genres.each do |genre| %>
+            <p class="mr-2"><%= genre.name %></p>
+          <% end %>
+        </div>
+      <hr>
+        <p class="h3">overview</p>
+        <p><%= @movie.overview %></p>
+    </div>
+  </div>
+</div>

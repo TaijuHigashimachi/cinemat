@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cinemat</title>
+    <title><%= page_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXDBYNC2T0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-NXDBYNC2T0');
+    </script>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="bg-dark text-white">
+    <%= render 'shared/header' %>
+    <%= render 'shared/flash_message' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>

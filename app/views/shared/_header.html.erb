@@ -1,0 +1,18 @@
+<nav class="navbar navbar-light bg-dark">
+    <%= link_to root_path, class: 'navbar-brand ms-5 text-light fs-1  me-auto customize-font' do %>
+      シネマト<span class="fs-6">次の「観たい」が見つかる</span>
+    <% end %>
+    <% if logged_in? %>
+      <%= link_to user_path(current_user), class: 'd-flex align-items-center me-4 text-light' do %>
+        <%= image_tag "#{current_user.avatar}", class: 'profile-image me-2', size: '50x50' %>
+        <%= current_user.name %>
+      <% end %>
+    <% else %>
+      <%= link_to login_path, class: 'd-flex me-4 text-light' do %>
+        <%= (t 'defaults.login') %>
+      <% end %>
+      <%= link_to new_user_path, class: 'd-flex me-5 text-light' do %>
+        <%= (t 'users.new.title') %>
+      <% end%>
+    <% end %>
+</nav>
