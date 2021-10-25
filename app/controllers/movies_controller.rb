@@ -1,6 +1,4 @@
 class MoviesController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
-
   def index
     # 全映画をユーザースコア順に並べて取得
     all_movies = Movie.all.order(user_score: :desc)
