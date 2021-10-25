@@ -10,11 +10,19 @@
     <% end %>
   </div>
   <hr>
-  <div class="d-flex justify-content-center align-items-center">
-    <%= link_to 'https://www.themoviedb.org/', target: :_blank, rel: "noopener noreferrer" do %>
-      <%= image_tag 'logo_tmdb.svg', size: '80x80', class: 'me-3' %>
-    <% end %>
-    このサービスはTMDB APIを使用しており、<br />
-    TMDBによって承認または認定されています。
+  <div class="d-flex align-items-center mb-3">
+    <div class="d-flex align-items-center w-50 ms-3">
+      <%= link_to 'https://www.themoviedb.org/', target: :_blank, rel: "noopener noreferrer" do %>
+        <%= image_tag 'logo_tmdb.svg', size: '50x50', class: 'me-3' %>
+      <% end %>
+      このサービスはTMDB APIを使用しており、<br />
+      TMDBによって承認または認定されています。
+    </div>
+    <div class="d-flex flex-row-reverse w-50">
+      <span class="text-white-50 me-3">© シネマト</span>
+      <%= link_to 'プライバシーポリシー', page_path('terms'), class: 'text-white me-3' %>
+      <%= link_to '利用規約', page_path('terms'), class: 'text-white me-3' %>
+      <%= link_to 'お問い合わせ', page_path('terms'), class: 'text-white me-3' %>
+    </div>
   </div>
 </footer>
