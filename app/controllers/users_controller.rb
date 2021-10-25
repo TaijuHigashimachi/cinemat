@@ -8,9 +8,8 @@ class UsersController < ApplicationController
     movie_status_watches = @movie_statuses.where(status: 'watch')
 
     # ステータスがwatchのデータのmovie_idを配列に保存
-    movie_id_array = []
-    movie_status_watches.size.times do |i|
-      movie_id_array.push(movie_status_watches[i]['movie_id'])
+    movie_id_array = movie_status_watches.map do |i|
+      i['movie_id']
     end
 
     # movie_idの配列でwhere検索
@@ -20,9 +19,8 @@ class UsersController < ApplicationController
   def watched
     movie_status_watched = @movie_statuses.where(status: 'watched')
 
-    movie_id_array = []
-    movie_status_watched.size.times do |i|
-      movie_id_array.push(movie_status_watched[i]['movie_id'])
+    movie_id_array = movie_status_watched.map do |i|
+      i['movie_id']
     end
 
     @watched_movies = Movie.where(id: movie_id_array)
@@ -31,9 +29,8 @@ class UsersController < ApplicationController
   def uninterested
     movie_status_uninterested = @movie_statuses.where(status: 'uninterested')
 
-    movie_id_array = []
-    movie_status_uninterested.size.times do |i|
-      movie_id_array.push(movie_status_uninterested[i]['movie_id'])
+    movie_id_array = movie_status_uninterested.map do |i|
+      i['movie_id']
     end
 
     @uninterested_movies = Movie.where(id: movie_id_array)
