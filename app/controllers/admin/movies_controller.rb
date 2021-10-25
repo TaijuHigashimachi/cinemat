@@ -1,12 +1,9 @@
-class Admin::MoviesController < ApplicationController
-  layout 'admin/layouts/application'
-
+class Admin::MoviesController < Admin::BaseController
   include Pagy::Backend
   require 'net/http'
   require 'uri'
   require 'json'
 
-  before_action :admin_only
   before_action :set_movie, only: %i[show edit update destroy]
   before_action :set_q, only: %i[index search]
 
