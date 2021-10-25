@@ -36,7 +36,7 @@
           <%end%>
         </div>
         <div class="poster w-75">
-          <% if @detail_result['videos'].present? %>
+          <% if @detail_result['videos']['results'][0].present? %>
             <iframe src="https://www.youtube.com/embed/<%= @detail_result['videos']['results'][0]['key'] %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-100 h-100"></iframe>
           <%end%>
         </div>

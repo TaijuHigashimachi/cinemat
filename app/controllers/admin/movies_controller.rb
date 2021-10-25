@@ -62,7 +62,7 @@ class Admin::MoviesController < Admin::BaseController
       @movie.release_date = @detail_result['release_date']
       @movie.overview = @detail_result['overview']
       @movie.poster_url = @detail_result['poster_path']
-      @movie.trailer_url = @detail_result['videos']['results'][0]['key']
+      @movie.trailer_url = @detail_result['videos']['results'][0]['key'] if @detail_result['videos']['results'][0]
 
       3.times{
         @movie.movie_genres.build
