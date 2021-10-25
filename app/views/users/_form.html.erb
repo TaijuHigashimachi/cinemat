@@ -1,6 +1,5 @@
 <div class="form-wrapper mx-auto text-center mb-5">
   <h1><%= t('users.new.title') %></h1>
-
   <%= simple_form_for @user, :html => { :class => 'mr-3 text-start' } do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">

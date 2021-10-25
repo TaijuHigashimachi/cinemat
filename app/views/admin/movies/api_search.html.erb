@@ -5,7 +5,6 @@
     <%= submit_tag (t 'defaults.search') %>
   <% end %>
 </div>
-
 <%if params[:user_input].present? %>
   <hr>
   <p class="text-center fw-bold fs-3"><%= params[:user_input] %>　の検索結果</p>
@@ -27,7 +26,6 @@
         <%= f.button :submit, class: 'btn btn-primary mt-3' %>
       </div>
     <% end %>
-
     <div class="movie-data border w-75">
       <div class="d-flex">
         <div class="poster w-25">
