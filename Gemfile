@@ -40,6 +40,9 @@ gem 'config', '2.2.3'
 # Search
 gem 'ransack', '2.3.2'
 
+# Pagination
+gem 'pagy', '4.11.0'
+
 gem 'rexml', '3.2.4'
 
 # Reduces boot times through caching; required in config/boot.rb
