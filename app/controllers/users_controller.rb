@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  before_action :require_login, only: %i[show watched uninterested edit update]
   before_action :set_user, only: %i[show edit update watched uninterested]
   before_action :set_movie_statuses, only: %i[show watched uninterested]
 
