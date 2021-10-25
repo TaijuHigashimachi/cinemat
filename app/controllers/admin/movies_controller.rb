@@ -1,17 +1,17 @@
 class Admin::MoviesController < ApplicationController
   layout 'admin/layouts/application'
 
-  before_action :admin_only
-  before_action :set_movie, only: %i[show edit update destroy]
-  before_action :set_q, only: [:index, :search]
-
+  include Pagy::Backend
   require 'net/http'
   require 'uri'
   require 'json'
 
-  
+  before_action :admin_only
+  before_action :set_movie, only: %i[show edit update destroy]
+  before_action :set_q, only: %i[index search]
+
   def index
-    @movies = Movie.all.order(user_score: :desc)
+    @pagy, @movies = pagy(Movie.all.order(user_score: :desc))
   end
 
   def create
