@@ -6,34 +6,17 @@ class UsersController < ApplicationController
   def show
     # movie_statusesのデータから、ステータスがwatchのものだけ取得
     movie_status_watches = @movie_statuses.where(status: 'watch')
-
-    # ステータスがwatchのデータのmovie_idを配列に保存
-    movie_id_array = movie_status_watches.map do |i|
-      i['movie_id']
-    end
-
-    # movie_idの配列でwhere検索
-    @watch_movies = Movie.where(id: movie_id_array)
+    @watch_movies = movie_search_by_status(movie_status_watches)
   end
 
   def watched
     movie_status_watched = @movie_statuses.where(status: 'watched')
-
-    movie_id_array = movie_status_watched.map do |i|
-      i['movie_id']
-    end
-
-    @watched_movies = Movie.where(id: movie_id_array)
+    @watched_movies = movie_search_by_status(movie_status_watched)
   end
 
   def uninterested
     movie_status_uninterested = @movie_statuses.where(status: 'uninterested')
-
-    movie_id_array = movie_status_uninterested.map do |i|
-      i['movie_id']
-    end
-
-    @uninterested_movies = Movie.where(id: movie_id_array)
+    @uninterested_movies = movie_search_by_status(movie_status_uninterested)
   end
 
   def new
@@ -74,5 +57,15 @@ class UsersController < ApplicationController
   def set_movie_statuses
     # current_userが登録しているmovie_statusesのデータを取得
     @movie_statuses = current_user.movie_statuses
+  end
+
+  def movie_search_by_status(movie_statuses)
+    # ステータスがwatchのデータのmovie_idを配列に保存
+    movie_id_array = movie_statuses.map do |i|
+      i['movie_id']
+    end
+
+    # movie_idの配列でwhere検索
+    Movie.where(id: movie_id_array)
   end
 end
