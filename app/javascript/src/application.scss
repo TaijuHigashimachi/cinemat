@@ -1,6 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+$breakpoints: (
+  sp: 599px
+);
+
+@mixin sp {
+  @media only screen and (max-width: map-get($breakpoints, sp)) {
+    @content;
+  }
+}
+
 a {
   color: transparent;
   &:hover {
@@ -14,6 +24,18 @@ a {
 
 .alert {
   margin-top: 80px;
+}
+
+.fs-5 {
+  @include sp {
+    font-size: 1rem !important;
+  };
+}
+
+.fs-6 {
+  @include sp {
+    font-size: 14px !important;
+  };
 }
 
 /** header **/
@@ -31,6 +53,11 @@ a {
 /** / **/
 .container {
   margin-top: 100px;
+  @include sp {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+  };
 }
 
 .swiper {
