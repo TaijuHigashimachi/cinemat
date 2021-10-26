@@ -50,6 +50,14 @@ a {
   font-family: 'YuGothic','Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', 'Meiryo','ＭＳ ゴシック',sans-serif;
 }
 
+/** footer **/
+footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 500;
+  width: 100%;
+}
+
 /** / **/
 .container {
   margin-top: 100px;
@@ -64,6 +72,9 @@ a {
 .swiper {
   max-height: 725px;
   max-width: 800px;
+  @include sp {
+    max-height: 800px;
+  };
 }
 
 .trailer {
