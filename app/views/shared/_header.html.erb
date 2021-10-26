@@ -2,8 +2,7 @@
     <%= link_to root_path, class: 'navbar-brand ms-5 text-light fs-1  me-auto customize-font' do %>
       シネマト<span class="fs-6">次の「観たい」が見つかる</span>
     <% end %>
-    <% if request.smart_phone? %>
-    <% else %>
+    <% if !request.smart_phone? %>
       <% if logged_in? %>
         <%= link_to user_path(current_user), class: 'd-flex align-items-center me-4 text-light' do %>
           <%= image_tag "#{current_user.avatar}", class: 'profile-image me-2', size: '50x50' %>
