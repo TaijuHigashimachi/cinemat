@@ -46,6 +46,9 @@ gem 'pagy', '4.11.0'
 # Static pages
 gem 'high_voltage', '3.1.2'
 
+# Responsive design
+gem 'jpmobile', '6.1.1'
+
 gem 'rexml', '3.2.4'
 
 # Reduces boot times through caching; required in config/boot.rb

@@ -4,24 +4,28 @@
     <iframe src="https://www.youtube.com/embed/<%= movie.trailer_url %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
   <div class="text-start mt-3">
-    <div class="h2">
-      <%= movie.title %>
+    <div class="row w-100">
+      <div class="h2 col-11">
+        <%= movie.title %>
+      </div>
+      <div class="col-1 text-end">
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#js-movie-detail-<%= movie.id %>" aria-expanded="false" aria-controls="#js-movie-detail-<%= movie.id %>" class="js-movie-detail-<%= movie.id %> movie-detail text-white">
+        <i class="fa fa-chevron-down"></i>
+        </button>
+      </div>
     </div>
     <div class="d-flex">
-      <div class="me-4">
+      <div class="me-4 fs-6">
         <%= movie.release_date.to_s.slice(0, 4) + '年公開' %>
       </div>
-      <div class="me-4">
+      <div class="me-4 fs-6">
         <%= movie.runtime + '分' %>
       </div>
-      <div class="me-4 me-auto">
+      <div class="me-4 fs-6 me-auto">
         <%= movie.genres[0]['name'] %>
         <%= movie.genres[1]['name'] %>
         <%= movie.genres[2]['name'] %>
       </div>
-      <button type="button" data-bs-toggle="collapse" data-bs-target="#js-movie-detail-<%= movie.id %>" aria-expanded="false" aria-controls="#js-movie-detail-<%= movie.id %>" class="js-movie-detail-<%= movie.id %> movie-detail text-white">
-        あらすじを見る<i class="fa fa-chevron-down"></i>
-      </button>
     </div>
     <div class="collapse mt-3" id="js-movie-detail-<%= movie.id %>">
       <div class="card card-body text-start">
