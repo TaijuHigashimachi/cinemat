@@ -65,6 +65,9 @@ group :development, :test do
   # Code analyze
   gem 'rubocop', '1.21.0'
   gem 'rubocop-rails', '2.11.3'
+  gem 'rubocop-discourse', '2.4.1'
+  gem 'rubocop-rubycw', '0.1.5'
+  gem 'rubocop-performance', '1.10.1'
 end
 
 group :development do
