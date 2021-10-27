@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_013239) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_genres_on_name", unique: true
   end
 
   create_table "movie_genres", force: :cascade do |t|
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_013239) do
     t.string "trailer_url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_movies_on_title", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,7 +70,7 @@ ActiveRecord::Schema.define(version: 2021_10_24_013239) do
     t.datetime "reset_password_email_sent_at"
     t.integer "access_count_to_reset_password_page", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "movie_genres", "genres"
