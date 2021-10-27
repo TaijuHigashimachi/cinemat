@@ -2,8 +2,8 @@ inherit_from: .rubocop_todo.yml
 
 require:
   - rubocop-rails
-  - rubocop-performance
   - rubocop-rubycw
+  - rubocop-performance
 
 AllCops:
   NewCops: enable
