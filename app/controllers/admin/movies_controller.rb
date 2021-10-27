@@ -50,7 +50,7 @@ class Admin::MoviesController < Admin::BaseController
     detail_json = Net::HTTP.get(detail_uri)
     @detail_result = JSON.parse(detail_json)
 
-    @movie = Movie.create(api_id: @detail_result['id'],
+    @movie = Movie.new(api_id: @detail_result['id'],
                           title: @detail_result['title'],
                           runtime: @detail_result['runtime'],
                           user_score: @detail_result['vote_average'] * 10,
