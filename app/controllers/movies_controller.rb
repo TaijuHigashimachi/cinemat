@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
                        end
 
     # last_viewed_movieが最後のデータだったとき、next_view_moviesがカラになるのを防ぐ
-    next_view_movies = all_movies if next_view_movies.empty?
+    next_view_movies = all_movies if next_view_movies.blank?
 
     # 「観たい」「観た」「興味なし」に登録した映画を表示しない
     status_movies = if current_user
