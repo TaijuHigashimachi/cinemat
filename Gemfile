@@ -65,6 +65,10 @@ group :development, :test do
   # Code analyze
   gem 'rubocop', '1.21.0'
   gem 'rubocop-rails', '2.11.3'
+
+  # Test
+  gem 'factory_bot_rails', '6.1.0'
+  gem 'rspec-rails', '4.1.2'
 end
 
 group :development do
