@@ -6,6 +6,7 @@ class Admin::MoviesController < Admin::BaseController
 
   before_action :set_movie, only: %i[show edit update destroy]
   before_action :set_q, only: %i[index search]
+  before_action :set_search_result, only: %i[api_search]
 
   def index
     @pagy, @movies = pagy(Movie.all.order(user_score: :desc))
@@ -42,27 +43,20 @@ class Admin::MoviesController < Admin::BaseController
   end
 
   def api_search
-    query = URI.encode_www_form(q: params[:user_input].to_s).delete_prefix('q=')
-    url = "https://api.themoviedb.org/3/search/movie?api_key=fffa263e9395a32c7352e5ee7a5b8df3&language=ja-JP&page=1&query=#{query}"
-    uri = URI.parse(url)
-    json = Net::HTTP.get(uri)
-    result = JSON.parse(json)
+    return if @search_result['results'].nil?
 
-    return if result['results'].nil?
-
-    detail_url = "https://api.themoviedb.org/3/movie/#{result['results'][0]['id']}?api_key=fffa263e9395a32c7352e5ee7a5b8df3&language=ja-JP&append_to_response=videos"
+    detail_url = "https://api.themoviedb.org/3/movie/#{@search_result['results'][0]['id']}?api_key=fffa263e9395a32c7352e5ee7a5b8df3&language=ja-JP&append_to_response=videos"
     detail_uri = URI.parse(detail_url)
     detail_json = Net::HTTP.get(detail_uri)
     @detail_result = JSON.parse(detail_json)
 
-    @movie = Movie.new
-    @movie.api_id = @detail_result['id']
-    @movie.title = @detail_result['title']
-    @movie.runtime = @detail_result['runtime']
-    @movie.user_score = @detail_result['vote_average'] * 10
-    @movie.release_date = @detail_result['release_date']
-    @movie.overview = @detail_result['overview']
-    @movie.poster_url = @detail_result['poster_path']
+    @movie = Movie.create(api_id: @detail_result['id'],
+                          title: @detail_result['title'],
+                          runtime: @detail_result['runtime'],
+                          user_score: @detail_result['vote_average'] * 10,
+                          release_date: @detail_result['release_date'],
+                          overview: @detail_result['overview'],
+                          poster_url: @detail_result['poster_path'])
     @movie.trailer_url = @detail_result['videos']['results'][0]['key'] if @detail_result['videos']['results'][0]
 
     3.times { @movie.movie_genres.build }
@@ -88,5 +82,13 @@ class Admin::MoviesController < Admin::BaseController
 
   def set_q
     @q = Movie.ransack(params[:q])
+  end
+
+  def set_search_result
+    query = URI.encode_www_form(q: params[:user_input].to_s).delete_prefix('q=')
+    url = "https://api.themoviedb.org/3/search/movie?api_key=fffa263e9395a32c7352e5ee7a5b8df3&language=ja-JP&page=1&query=#{query}"
+    uri = URI.parse(url)
+    json = Net::HTTP.get(uri)
+    @search_result = JSON.parse(json)
   end
 end
