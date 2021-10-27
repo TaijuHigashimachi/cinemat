@@ -71,7 +71,15 @@ class Admin::MoviesController < Admin::BaseController
   private
 
   def movie_params
-    params.require(:movie).permit(:api_id, :title, :runtime, :user_score, :release_date, :overview, :poster_url, :trailer_url, movie_genres_attributes: %i[id movie_id genre_id])
+    params.require(:movie).permit(:api_id,
+                                  :title,
+                                  :runtime,
+                                  :user_score,
+                                  :release_date,
+                                  :overview,
+                                  :poster_url,
+                                  :trailer_url,
+                                  movie_genres_attributes: %i[id movie_id genre_id])
   end
 
   def set_movie
