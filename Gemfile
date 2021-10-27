@@ -61,6 +61,10 @@ group :development, :test do
 
   # Debugger
   gem 'byebug'
+
+  # Code analyze
+  gem 'rubocop', '1.21.0'
+  gem 'rubocop-rails', '2.11.3'
 end
 
 group :development do
