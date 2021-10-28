@@ -62,6 +62,9 @@ group :development, :test do
   # Debugger
   gem 'byebug'
 
+  # Email
+  gem 'letter_opener_web', '1.3.4'
+
   # Code analyze
   gem 'rubocop', '1.21.0'
   gem 'rubocop-rails', '2.11.3'
@@ -75,8 +78,6 @@ group :development do
   gem 'listen', '3.6.0'
   gem 'web-console'
 
-  # Email
-  gem 'letter_opener_web', '1.3.4'
 end
 
 group :test do
