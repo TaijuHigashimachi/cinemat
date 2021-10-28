@@ -23,6 +23,7 @@ RSpec.describe 'Movies', type: :system do
         sleep(1)
         page.driver.browser.manage.add_cookie(name: 'cinemat_movie_id', value: "#{best_score_movie.id}")
         sleep(1)
+
         visit current_path
         expect(page).to have_content("#{second_best_score_movie.title}")
       end
@@ -44,6 +45,7 @@ RSpec.describe 'Movies', type: :system do
         sleep(1)
         page.driver.browser.manage.add_cookie(name: 'cinemat_movie_id', value: "#{second_best_score_movie.id}")
         sleep(1)
+
         visit current_path
         expect(page).to have_content("#{third_best_score_movie.title}")
       end
@@ -72,16 +74,19 @@ RSpec.describe 'Movies', type: :system do
     end
     it '「観たい」リストに追加ができる' do
       find('.watch').click
+
       visit user_path(user)
       expect(page).to have_content("#{best_score_movie.title}")
     end
     it '「観た」リストに追加ができる' do
       find('.watched').click
+
       visit user_watched_path(user)
       expect(page).to have_content("#{best_score_movie.title}")
     end
     it '「興味なし」リストに追加ができる' do
       find('.uninterested').click
+
       visit user_uninterested_path(user)
       expect(page).to have_content("#{best_score_movie.title}")
     end

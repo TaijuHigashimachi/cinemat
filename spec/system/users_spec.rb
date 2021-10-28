@@ -35,6 +35,7 @@ RSpec.describe 'Movies', type: :system do
     before do
       create_list(:movie, 5)
       login(user)
+
       visit user_path(user)
     end
     context 'ログインユーザー' do
@@ -50,26 +51,23 @@ RSpec.describe 'Movies', type: :system do
       end
       it '「観たい」リストから映画を削除できる' do
         create(:movie_status, movie_id: best_score_movie.id, user_id: user.id, status: 0)
-
         visit current_path
-        find('.watch').click
 
+        find('.watch').click
         expect(page).not_to have_content("#{best_score_movie.title}")
       end
       it '「観た」リストから映画を削除できる' do
         create(:movie_status, movie_id: best_score_movie.id, user_id: user.id, status: 1)
-
         visit user_watched_path(user)
-        find('.watched').click
 
+        find('.watched').click
         expect(page).not_to have_content("#{best_score_movie.title}")
       end
       it '「興味なし」リストから映画を削除できる' do
         create(:movie_status, movie_id: best_score_movie.id, user_id: user.id, status: 2)
-
         visit user_uninterested_path(user)
-        find('.uninterested').click
 
+        find('.uninterested').click
         expect(page).not_to have_content("#{best_score_movie.title}")
       end
       it 'ログアウトができる' do
