@@ -2,7 +2,6 @@ class MoviesController < ApplicationController
   def index
     # 全映画をユーザースコア順に並べて取得
     all_movies = Movie.all.order(user_score: :desc)
-
     # ブラウザを開き直したとき、最後に観た映画の次の映画から表示
     next_view_movies = if cookies['cinemat_movie_id']
                          # ブラウザを閉じる前、最後に観ていた映画を取得
