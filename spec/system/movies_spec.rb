@@ -3,13 +3,16 @@ require 'rails_helper'
 RSpec.describe 'Movies', type: :system do
   describe 'トップページ' do
     context '未ログインユーザー x クッキーなし' do
-      fit '初回チュートリアルが表示' do
+      xit '初回チュートリアルが表示' do
         create_list(:movie, 5)
         visit root_path
         expect(page).to have_content('シネマトへようこそ')
       end
-      xit '全作品の中で、ユーザースコアが最も高い作品が最初に表示' do
+      it '全作品の中で、ユーザースコアが最も高い作品が最初に表示' do
+        create_list(:movie, 5)
         visit root_path
+        swipe_tutorial
+        expect(page).to have_content('movie_title_5')
       end
     end
     context '未ログインユーザー x クッキーあり' do

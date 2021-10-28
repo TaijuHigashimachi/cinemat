@@ -10,7 +10,7 @@ FactoryBot.define do
     trailer_url { '0UkG8GnfCCY' }
 
     after(:create) do |movie|
-      create(:movie_genre, movie: movie, genre: create(:genre))
+      create_list(:movie_genre, 3, movie: movie, genre: create(:genre))
     end
   end
 end
