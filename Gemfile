@@ -29,7 +29,7 @@ gem 'simple_form'
 gem 'sorcery'
 
 # Image
-gem 'carrierwave', '2.1.1'
+gem 'carrierwave'
 gem 'fog-aws', '3.9.0'
 gem 'mini_magick'
 
