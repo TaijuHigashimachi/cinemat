@@ -29,6 +29,7 @@ RSpec.describe 'Movies', type: :system do
       visit login_path
       fill_in 'user[email]', with: '1@example.com'
       fill_in 'user[password]', with: '1234'
+      sleep(1)
       click_button('ログイン')
 
       click_link 'user_1'
