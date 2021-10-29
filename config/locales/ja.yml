@@ -38,8 +38,13 @@ ja:
       edit:
         title: 'ジャンル編集'
       create:
-        success: 'ジャンルを作成しました'
-        fail: 'ジャンルを作成できませんでした'
+        success: 'ジャンルを登録しました'
+        fail: 'ジャンルを登録できませんでした'
+      update:
+        success: 'ジャンルを更新しました'
+        fail: 'ジャンルの更新に失敗しました'
+      destroy:
+        success: 'ジャンルを削除しました'
   users:
     new:
       title: 'ユーザー登録'

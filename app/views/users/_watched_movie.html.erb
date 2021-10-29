@@ -4,17 +4,17 @@
   </div>
   <%= watched_movie.title %>
   <div class="d-flex text-center fs-3 m-1">
-    <div class="col-4 border">
+    <div class="watch col-4 border">
       <%= link_to movie_status_path(id: current_user.id, movie_id: watched_movie.id, user_id: current_user.id, status: 'watch'), method: :put, local: true do %>
         <i class="fas fa-plus-circle text-white"></i>
       <% end %>
     </div>
-    <div class="col-4 border bg-warning">
+    <div class="watched col-4 border bg-warning">
       <%= link_to movie_status_path(id: current_user.id, movie_id: watched_movie.id, user_id: current_user.id), method: :delete, local: true do %>
         <i class="fas fa-check-circle text-white"></i>
       <% end %>
     </div>
-    <div class="col-4 border">
+    <div class="uninterested col-4 border">
       <%= link_to movie_status_path(id: current_user.id, movie_id: watched_movie.id, user_id: current_user.id, status: 'uninterested'), method: :put, local: true do %>
         <i class="fas fa-minus-circle text-white"></i>
       <% end %>
@@ -32,17 +32,17 @@
         <%= watched_movie.title %>
       </div>
       <div class="d-flex text-center fs-3 m-1">
-        <div class="col-4 border">
+        <div class="watch col-4 border">
           <%= link_to movie_status_path(id: current_user.id, movie_id: watched_movie.id, user_id: current_user.id, status: 'watch'), method: :put, local: true do %>
             <i class="fas fa-plus-circle text-white"></i>
           <% end %>
         </div>
-        <div class="col-4 border bg-warning">
+        <div class="watched col-4 border bg-warning">
           <%= link_to movie_status_path(id: current_user.id, movie_id: watched_movie.id, user_id: current_user.id), method: :delete, local: true do %>
             <i class="fas fa-check-circle text-white"></i>
           <% end %>
         </div>
-        <div class="col-4 border">
+        <div class="uninterested col-4 border">
           <%= link_to movie_status_path(id: current_user.id, movie_id: watched_movie.id, user_id: current_user.id, status: 'uninterested'), method: :put, local: true do %>
             <i class="fas fa-minus-circle text-white"></i>
           <% end %>
