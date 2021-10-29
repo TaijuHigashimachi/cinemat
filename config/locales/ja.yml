@@ -40,6 +40,11 @@ ja:
       create:
         success: 'ジャンルを登録しました'
         fail: 'ジャンルを登録できませんでした'
+      update:
+        success: 'ジャンルを更新しました'
+        fail: 'ジャンルの更新に失敗しました'
+      destroy:
+        success: 'ジャンルを削除しました'
   users:
     new:
       title: 'ユーザー登録'
