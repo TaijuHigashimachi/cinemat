@@ -8,7 +8,11 @@
             <p class="mt-5">上にスワイプすると<br />次のスライドに移ります</p>
           </div>
           <div>
-            <%= image_tag 'swipe_up', class: 'mx-auto mt-5 d-block' %>
+            <% if request.smart_phone? %>
+              <%= image_tag 'swipe_up', class: 'mx-auto mt-5 d-block', size: '150x150' %>
+            <% else %>
+              <%= image_tag 'swipe_up', class: 'mx-auto mt-5 d-block' %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -39,13 +43,18 @@
         </div>
       </div>
       <div class="swiper-slide border">
-        <div class="h-100 fs-1 text-center d-flex justify-content-center align-items-center">
-          <p>それでは<br />映画の予告を<br />お楽しみください</p>
-        </div>
+        <% if request.smart_phone? %>
+          <div class="h-100 fs-1 text-center d-flex justify-content-center mt-5 pt-5">
+            <p>それでは<br />映画の予告を<br />お楽しみください</p>
+          </div>
+        <% else %>
+          <div class="h-100 fs-1 text-center d-flex justify-content-center align-items-center">
+            <p>それでは<br />映画の予告を<br />お楽しみください</p>
+          </div>
+        <% end %>
       </div>
     <% end %>
     <%= render @movies %>
   </div>
 </div>
-
 <%= javascript_pack_tag "swiper" %>

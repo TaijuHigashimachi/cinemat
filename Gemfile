@@ -1,17 +1,17 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 ruby '3.0.2'
 
-gem "rails", '6.0.3.7'
+gem 'rails', '6.0.3.7'
 
 # Assets
-gem 'webpacker'
 gem 'jquery-rails'
 gem 'sass-rails'
+gem 'webpacker'
 
 # UI/UX
-gem 'turbolinks'
 gem 'jbuilder'
 gem 'rails-i18n', '6.0.0'
+gem 'turbolinks'
 
 # Application server
 gem 'puma', '~> 3.11'
@@ -29,13 +29,13 @@ gem 'simple_form'
 gem 'sorcery'
 
 # Image
-gem 'mini_magick'
-gem 'carrierwave', '2.1.1'
+gem 'carrierwave'
 gem 'fog-aws', '3.9.0'
+gem 'mini_magick'
 
 # Configuration
-gem 'dotenv-rails', '2.7.6'
 gem 'config', '2.2.3'
+gem 'dotenv-rails', '2.7.6'
 
 # Search
 gem 'ransack', '2.3.2'
@@ -46,6 +46,11 @@ gem 'pagy', '4.11.0'
 # Static pages
 gem 'high_voltage', '3.1.2'
 
+# Responsive design
+gem 'jpmobile', '6.1.1'
+
+# Solve dependency problems
+gem 'mimemagic', '0.4.3'
 gem 'rexml', '3.2.4'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -58,22 +63,33 @@ group :development, :test do
 
   # Debugger
   gem 'byebug'
+
+  # Email
+  gem 'letter_opener_web', '1.3.4'
+
+  # Code analyze
+  gem 'rubocop', '1.21.0'
+  gem 'rubocop-rails', '2.11.3'
+
+  # Test
+  gem 'factory_bot_rails', '6.1.0'
+  gem 'rspec-rails', '4.1.2'
 end
 
 group :development do
   gem 'listen', '3.6.0'
   gem 'web-console'
 
-  # Email
-  gem 'letter_opener_web', '1.3.4'
+  # CI
+  gem 'pre-commit', '0.39.0'
 end
 
 group :test do
   gem 'capybara'
   gem 'webdrivers'
-end
 
-group :production do
+  # Coverage
+  gem 'simplecov', '0.19.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

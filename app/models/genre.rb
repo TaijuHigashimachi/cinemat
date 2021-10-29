@@ -12,6 +12,6 @@ class Genre < ApplicationRecord
   has_many :movie_genres, dependent: :destroy
   has_many :movies, through: :movie_genres
 
-  validates :api_genre_id, presence: true, uniqueness: true
+  validates :api_genre_id, presence: true
   validates :name, presence: true, uniqueness: true
 end

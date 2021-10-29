@@ -20,9 +20,9 @@ class Movie < ApplicationRecord
   has_many :genres, through: :movie_genres
   accepts_nested_attributes_for :movie_genres, allow_destroy: true
 
-  validates :api_id, presence: true, uniqueness: true
+  validates :api_id, presence: true
   validates :title, presence: true, uniqueness: true
-  validates :trailer_url, presence: true, uniqueness: true
-  validates :poster_url , presence: true, uniqueness: true
-  validates :release_date , presence: true, uniqueness: true
+  validates :trailer_url, presence: true
+  validates :poster_url, presence: true
+  validates :release_date, presence: true
 end

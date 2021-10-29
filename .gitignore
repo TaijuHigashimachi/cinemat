@@ -41,7 +41,9 @@ yarn-debug.log*
 
 # Ignore environment variable file
 /.env
-
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+
+# Ignore coverage report
+coverage/
