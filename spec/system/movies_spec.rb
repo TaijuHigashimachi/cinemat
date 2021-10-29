@@ -7,18 +7,18 @@ RSpec.describe 'Movies', type: :system do
   end
   describe '映画情報の表示／未ログインユーザー' do
     context 'クッキーなし' do
-      it '初回チュートリアルが表示' do
+      it '初回チュートリアルが表示される' do
         visit root_path
         expect(page).to have_content('シネマトへようこそ')
       end
-      it '全作品の中で、ユーザースコアが最も高い作品が最初に表示' do
+      it '全作品の中で、ユーザースコアが最も高い作品が、最初に表示される' do
         visit root_path
         swipe_tutorial
         expect(page).to have_content("#{best_score_movie.title}")
       end
     end
     context 'クッキーあり' do
-      it '前回見た作品の、次の作品が表示' do
+      it '前回見た作品の、次の作品が表示される' do
         visit root_path
         sleep(1)
         page.driver.browser.manage.add_cookie(name: 'cinemat_movie_id', value: "#{best_score_movie.id}")
@@ -36,12 +36,12 @@ RSpec.describe 'Movies', type: :system do
       login(user)
     end
     context 'クッキーなし' do
-      it 'ウォッチリストの作品を除いた中で、ユーザースコアが最も高い作品が表示' do
+      it 'ウォッチリストの作品を除いた中で、ユーザースコアが最も高い作品が表示される' do
         expect(page).to have_content("#{second_best_score_movie.title}")
       end
     end
     context 'クッキーあり' do
-      it 'ウォッチリストの作品を除いた中で、前回見た次の作品が表示' do
+      it 'ウォッチリストの作品を除いた中で、前回見た次の作品が表示される' do
         sleep(1)
         page.driver.browser.manage.add_cookie(name: 'cinemat_movie_id', value: "#{second_best_score_movie.id}")
         sleep(1)
@@ -67,30 +67,30 @@ RSpec.describe 'Movies', type: :system do
     before do
       login(user)
     end
-    it 'ウォッチリストエリアが表示されている' do
+    it 'ウォッチリストエリアが表示される' do
       expect(page).to have_selector(:css, '.watchlist', text: '観たい')
       expect(page).to have_selector(:css, '.watchlist', text: '観た')
       expect(page).to have_selector(:css, '.watchlist', text: '興味なし')
     end
-    it '「観たい」リストに追加ができる' do
+    it '「観たい」リストへの追加に成功' do
       find('.watch').click
 
       visit user_path(user)
       expect(page).to have_content("#{best_score_movie.title}")
     end
-    it '「観た」リストに追加ができる' do
+    it '「観た」リストへの追加に成功' do
       find('.watched').click
 
       visit user_watched_path(user)
       expect(page).to have_content("#{best_score_movie.title}")
     end
-    it '「興味なし」リストに追加ができる' do
+    it '「興味なし」リストへの追加に成功' do
       find('.uninterested').click
 
       visit user_uninterested_path(user)
       expect(page).to have_content("#{best_score_movie.title}")
     end
-    it 'ステータスが変更できる' do
+    it 'ステータスの変更に成功' do
       find('.watch').click
 
       visit user_path(user)

@@ -4,13 +4,13 @@ RSpec.describe 'Movies', type: :system do
   describe '管理画面' do
     let(:user) { create :user }
     context '未ログインユーザー' do
-      it 'アクセスできない' do
+      it 'アクセスに失敗' do
         visit admin_root_path
         expect(page).to have_content('権限がありません')
       end
     end
     context '一般ユーザー' do
-      it 'アクセスできない' do
+      it 'アクセスに失敗' do
         login(user)
         
         visit admin_root_path
@@ -26,7 +26,7 @@ RSpec.describe 'Movies', type: :system do
       visit admin_root_path
     end
     context '管理者ユーザー' do
-      it 'アクセスできる' do
+      it 'アクセスに成功' do
         expect(page).to have_content('管理画面')
         expect(page).to have_content('映画一覧')
         expect(page).to have_content('ジャンル一覧')
@@ -46,7 +46,7 @@ RSpec.describe 'Movies', type: :system do
         visit admin_root_path
         expect(page).not_to have_content('ボヘミアン・ラプソディ')
       end
-      it '映画を登録できる' do
+      it '映画の登録に成功' do
         click_link('登録する')
 
         fill_in 'user_input', with: 'ボヘミアン・ラプソディ'
@@ -59,7 +59,7 @@ RSpec.describe 'Movies', type: :system do
         visit admin_root_path
         expect(page).to have_content('ボヘミアン・ラプソディ')
       end
-      it 'ジャンルを登録できる' do
+      it 'ジャンルの登録に成功' do
         sleep(1)
         click_link('ジャンル一覧')
         sleep(1)
