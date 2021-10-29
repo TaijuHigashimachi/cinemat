@@ -78,6 +78,8 @@ group :development do
   gem 'listen', '3.6.0'
   gem 'web-console'
 
+  # CI/CD
+  gem 'pre-commit', '0.39.0'
 end
 
 group :test do
@@ -86,9 +88,6 @@ group :test do
 
   # Coverage
   gem 'simplecov', '0.19.1'
-end
-
-group :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
