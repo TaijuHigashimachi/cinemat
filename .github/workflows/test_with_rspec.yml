@@ -7,10 +7,8 @@ name: Rails - Install dependencies and run linters
 
 on:
   push:
-    branches: [ develop ]
     branches: [ master ]
   pull_request:
-    branches: [ develop ]
     branches: [ master ]
 jobs:
   run-lint:
