@@ -83,6 +83,9 @@ end
 group :test do
   gem 'capybara'
   gem 'webdrivers'
+
+  # Coverage
+  gem 'simplecov', '0.19.1'
 end
 
 group :production do
