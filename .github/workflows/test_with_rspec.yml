@@ -23,6 +23,7 @@ jobs:
       - name: Test with Rspec
         run: |
           gem install bundler
+          brew install shared-mime-info
           bundle update mimemagic
           bundle install
           rspec
