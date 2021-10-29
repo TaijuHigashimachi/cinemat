@@ -22,9 +22,10 @@ jobs:
           ruby-version: 3.0.2
       - name: Test with Rspec
         run: |
+          brew install rbenv
           gem install bundler
           brew install shared-mime-info
           bundle install
           gem install rspec
-          rbenv -v
+          rbenv rehash
           bundle exec rspec
