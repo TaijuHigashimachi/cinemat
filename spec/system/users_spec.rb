@@ -19,17 +19,16 @@ RSpec.describe 'Movies', type: :system do
   end
 
   describe 'ログインページ' do
+    let(:user) { create :user }
     it 'ログインに失敗' do
       visit login_path
       click_button('ログイン')
       expect(page).to have_content('ログインに失敗しました')
     end
     it 'ログインに成功' do
-      create(:user)
       visit login_path
-      fill_in 'user[email]', with: '1@example.com'
+      fill_in 'user[email]', with: "#{user.email}"
       fill_in 'user[password]', with: '1234'
-      sleep(1)
       click_button('ログイン')
 
       click_link 'user_1'
