@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 # This workflow will download a prebuilt Ruby version, install dependencies, and  run linters
-name: Rails - Install dependencies and run linters
+name: cinemat
 
 on:
   push:
@@ -17,11 +17,26 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Set up Ruby 3.0.2
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0.2
-          bundler-cache: true
+
+      - name: Set up Bundler
+        run: gem install bundler
+
+      - name: Cache gems
+        uses: actions/cache@preview
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gem-
+
+      - name: bundle install
+        run: bundle install --path vendor/bundle
+
       - name: Test with Rspec
         run: |
           bundle exec rspec
