@@ -17,7 +17,8 @@ class Admin::MoviesController < Admin::BaseController
     if @movie.save
       redirect_to admin_movies_api_search_path, success: t('.success')
     else
-      render :api_search, danger: t('.fail')
+      flash.now[:danger] = t('.fail')
+      render :api_search
     end
   end
 
