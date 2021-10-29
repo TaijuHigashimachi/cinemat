@@ -78,7 +78,7 @@ group :development do
   gem 'listen', '3.6.0'
   gem 'web-console'
 
-  # CI/CD
+  # CI
   gem 'pre-commit', '0.39.0'
 end
 
