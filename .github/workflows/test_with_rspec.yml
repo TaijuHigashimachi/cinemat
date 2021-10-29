@@ -23,6 +23,8 @@ jobs:
       - name: Test with Rspec
         run: |
           gem install bundler
+          brew install rbenv
           brew install shared-mime-info
           bundle install
+          rbenv rehash
           bundle exec rspec
