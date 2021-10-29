@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe 'Movies', type: :system do
   describe 'ユーザー登録画面' do
+    it 'ユーザー登録の失敗' do
+      visit new_user_path
+      click_button('登録する')
+      expect(page).to have_content('ユーザーの登録に失敗しました')
+    end
     it 'ユーザー登録ができる' do
       visit new_user_path
       fill_in 'user[name]', with: 'user_1'
@@ -39,6 +44,14 @@ RSpec.describe 'Movies', type: :system do
       visit user_path(user)
     end
     context 'ログインユーザー' do
+      it 'プロフィールの編集に失敗' do
+        click_link 'プロフィール編集'
+        fill_in 'user[name]', with: ""
+        fill_in 'user[email]', with: ""
+        click_button('更新する')
+
+        expect(page).to have_content('プロフィールの更新に失敗しました')
+      end
       it 'プロフィールの編集ができる' do
         click_link 'プロフィール編集'
         fill_in 'user[name]', with: "edit_name"
