@@ -12,7 +12,7 @@ on:
     branches: [ master ]
 jobs:
   run-lint:
-    runs-on: macos-11
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -23,7 +23,5 @@ jobs:
       - name: Test with Rspec
         run: |
           gem install bundler
-          brew install shared-mime-info
           bundle install
-          gem install rspec
           bundle exec rspec
