@@ -26,16 +26,11 @@ jobs:
       - name: Set up Bundler
         run: gem install bundler
 
-      - name: Cache gems
-        uses: actions/cache@preview
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gem-
+      - name: Solve dependencies problem
+        run: brew install shared-mime-info
 
       - name: bundle install
-        run: bundle install --path vendor/bundle
+        run: bundle install
 
       - name: Test with Rspec
         run: |
