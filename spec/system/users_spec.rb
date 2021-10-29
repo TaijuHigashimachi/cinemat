@@ -31,8 +31,8 @@ RSpec.describe 'Movies', type: :system do
       fill_in 'user[password]', with: '1234'
       click_button('ログイン')
 
-      click_link 'user_1'
-      expect(page).to have_selector(:css, '.profile-top', text: 'user_1')
+      click_link "#{user.name}"
+      expect(page).to have_selector(:css, '.profile-top', text: "#{user.name}")
       expect(page).to have_selector(:css, '.profile-top', text: 'プロフィール編集')
       expect(page).to have_selector(:css, '.profile-top', text: 'ログアウト')
     end
