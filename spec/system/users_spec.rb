@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Movies', type: :system do
-  describe 'ユーザー登録画面' do
+  describe 'ユーザー登録ページ' do
     it 'ユーザー登録の失敗' do
       visit new_user_path
       click_button('登録する')
@@ -14,7 +14,14 @@ RSpec.describe 'Movies', type: :system do
       fill_in 'user[password]', with: '1234'
       fill_in 'user[password_confirmation]', with: '1234'
       click_button('登録する')
+      expect(page).to have_content('ユーザーを登録しました')
+    end
+  end
 
+  describe 'ログインページ' do
+    it 'ログインに成功' do
+      create(:user)
+      visit login_path
       fill_in 'user[email]', with: '1@example.com'
       fill_in 'user[password]', with: '1234'
       click_button('ログイン')
@@ -23,6 +30,11 @@ RSpec.describe 'Movies', type: :system do
       expect(page).to have_selector(:css, '.profile-top', text: 'user_1')
       expect(page).to have_selector(:css, '.profile-top', text: 'プロフィール編集')
       expect(page).to have_selector(:css, '.profile-top', text: 'ログアウト')
+    end
+    it 'ログインに失敗' do
+      visit login_path
+      click_button('ログイン')
+      expect(page).to have_content('ログインに失敗しました')
     end
   end
 
