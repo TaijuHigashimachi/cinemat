@@ -49,6 +49,8 @@ gem 'high_voltage', '3.1.2'
 # Responsive design
 gem 'jpmobile', '6.1.1'
 
+# Solve dependency problems
+gem 'mimemagic', '0.4.3'
 gem 'rexml', '3.2.4'
 
 # Reduces boot times through caching; required in config/boot.rb
