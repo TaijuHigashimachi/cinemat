@@ -46,7 +46,9 @@ RSpec.describe 'Movies', type: :system do
         expect(page).to have_content('ボヘミアン・ラプソディ')
       end
       it 'ジャンルを登録できる' do
+        sleep(1)
         click_link('ジャンル一覧')
+        sleep(1)
         click_link('登録する')
 
         fill_in 'genre[api_genre_id]', with: '10402'
