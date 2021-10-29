@@ -26,4 +26,5 @@ jobs:
           brew install shared-mime-info
           bundle update mimemagic
           bundle install
+          gem install rspec
           bundle exec rspec
