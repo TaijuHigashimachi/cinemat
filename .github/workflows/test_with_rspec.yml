@@ -23,5 +23,6 @@ jobs:
       - name: Test with Rspec
         run: |
           gem install bundler
+          bundle update mimemagic
           bundle install
           rspec
