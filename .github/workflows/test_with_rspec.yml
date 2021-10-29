@@ -1,0 +1,29 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will download a prebuilt Ruby version, install dependencies, and  run linters
+name: Rails - Install dependencies and run linters
+
+on:
+  push:
+    branches: [ develop ]
+    branches: [ master ]
+  pull_request:
+    branches: [ develop ]
+    branches: [ master ]
+jobs:
+  run-lint:
+    runs-on: macos-11
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Ruby 3.0.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0.2
+      - name: Test with Rspec
+        run: |
+          gem install bundler
+          bundle install --path vendor/bundle --quiet --jobs 4 --retry 3
+          bundle exec rspec
