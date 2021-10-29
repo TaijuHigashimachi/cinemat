@@ -90,5 +90,26 @@ RSpec.describe 'Movies', type: :system do
       visit user_uninterested_path(user)
       expect(page).to have_content("#{best_score_movie.title}")
     end
+    it 'ステータスが変更できる' do
+      find('.watch').click
+
+      visit user_path(user)
+      expect(page).to have_content("#{best_score_movie.title}")
+      find('.watched').click
+      expect(page).not_to have_content("#{best_score_movie.title}")
+
+      visit user_watched_path(user)
+      expect(page).to have_content("#{best_score_movie.title}")
+      find('.uninterested').click
+      expect(page).not_to have_content("#{best_score_movie.title}")
+
+      visit user_uninterested_path(user)
+      expect(page).to have_content("#{best_score_movie.title}")
+      find('.watch').click
+      expect(page).not_to have_content("#{best_score_movie.title}")
+
+      visit user_path(user)
+      expect(page).to have_content("#{best_score_movie.title}")
+    end
   end
 end
