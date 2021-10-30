@@ -55,6 +55,9 @@ jobs:
           path: node_modules
           key: yarn-${{ hashFiles('**/yarn.lock') }}
 
+      - name: Yarn Install
+        run: yarn install
+
       - name: PostgreSQL Install
         run: sudo apt-get -yqq install libpq-dev
 
