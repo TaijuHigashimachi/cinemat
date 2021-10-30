@@ -10,19 +10,25 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     services:
-      postgres:
-        image: postgres
+      db:
+        image: postgres:latest
+        ports: ['5432:5432']
         env:
-          POSTGRES_USER: postgre
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          - 5432:5432
+    env:
+      RAILS_ENV: test
+      RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_HOST: 127.0.0.1
+      POSTGRES_PORT: 5432
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -37,20 +43,38 @@ jobs:
         with:
           node-version: 15.14.0
 
+      - name: Chache Gemfile.lock
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: bundle-${{ hashFiles('**/Gemfile.lock') }}
+
+      - name: Chache yarn.lock
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: yarn-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Yarn Install
+        run: yarn install
+
+      - name: PostgreSQL Install
+        run: sudo apt-get -yqq install libpq-dev
+
+      - name: Copy database.yml
+        run: cp config/database.yml.github-actions config/database.yml
+
       - name: Set up Bundler
         run: gem install bundler
 
       - name: Bundle Install
-        run: bundle install
+        run: bundle install --path vendor/bundle
 
       - name: Copy database.yml
         run: cp config/database.yml.github-actions config/database.yml
-        
-      - name: Start Postgresql
-        run: brew services start postgresql
 
       - name: Create Database
-        run: bundle exec rails db:migrate:reset
+        run: bundle exec rails db:setup
 
       - name: Run Rspec
         run: bundle exec rspec
