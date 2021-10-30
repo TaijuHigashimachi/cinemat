@@ -25,6 +25,7 @@
     "webpack-dev-server": "^3"
   },
   "scripts": {
+    "setup": "yarn",
     "postinstall": "cd ./frontend && yarn && yarn run webpack --config ./webpack.config.js --mode production"
   }
 }
