@@ -83,7 +83,7 @@ jobs:
         run: bundle exec rspec
 
       - name: Archive Rspec Screenshots
-        if: failuer()
+        if: failure()
         uses: actions/upload-artifact@v1
         with: 
           name: Rspec Screenshots
