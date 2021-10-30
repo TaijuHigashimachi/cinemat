@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "engines": {
+    "yarn": "1.22.15",
     "node": "15.14.0"
   },
   "dependencies": {
@@ -24,6 +25,6 @@
     "webpack-dev-server": "^3"
   },
   "scripts": {
-    "heroku-postbuild": "npm run prod"
+    "postinstall": "cd ./frontend && yarn && yarn run webpack --config ./webpack.config.js --mode production"
   }
 }
