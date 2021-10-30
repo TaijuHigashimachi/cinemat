@@ -7,10 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-  runner-job:
+  my-job:
     runs-on: ubuntu-latest
-    env:
-      ENV: runner-job
     services:
       postgres:
         image: postgres
@@ -26,36 +24,6 @@ jobs:
         ports:
           - 5432:5432
     steps:
-      - name: Migrate DB schema
-        shell: bash
-        run: |
-          export PATH=$PATH:$(go env GOPATH)/bin
-          go get github.com/rubenv/sql-migrate/...
-          sql-migrate up -config=config/database.yml -env=${ENV}
-        env:
-          POSTGRES_HOST: localhost
-          POSTGRES_PORT: 5432
-
-  container-job:
-    runs-on: ubuntu-latest
-    container:
-      image: node:15.14.0
-    env:
-      ENV: container-job
-    services:
-      postgres:
-        image: postgres
-        env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-    steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -64,21 +32,22 @@ jobs:
         with:
           ruby-version: 3.0.2
 
-      - name: Migrate DB schema
-        shell: bash
-        run: |
-          export PATH=$PATH:$(go env GOPATH)/bin
-          go get github.com/rubenv/sql-migrate/...
-          sql-migrate up -config=config/database.yml -env=${ENV}
-        env:
-          POSTGRES_HOST: postgres
-          POSTGRES_PORT: 5432
+      - name: Set up Node.js 15.14.0
+        uses: actions/setup-node@v1
+        with:
+          node-version: 15.14.0
+
+      - name: Yarn Install
+        run: yarn install
 
       - name: Set up Bundler
         run: gem install bundler
 
       - name: Bundle Install
         run: bundle install
+
+      - name: Copy database.yml
+        run: cp config/database.yml.github-actions config/database.yml
         
       - name: Start Postgresql
         run: brew services start postgresql
