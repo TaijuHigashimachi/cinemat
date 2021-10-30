@@ -23,5 +23,8 @@
   },
   "devDependencies": {
     "webpack-dev-server": "^3"
+  },
+  "scripts": {
+    "build:production": "NODE_ENV=production npm rebuild node-sass; webpack --config webpack.config.js"
   }
 }
