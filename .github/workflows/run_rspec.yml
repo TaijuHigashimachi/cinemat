@@ -56,7 +56,9 @@ jobs:
           key: yarn-${{ hashFiles('**/yarn.lock') }}
 
       - name: Yarn Install
-        run: yarn add 1.22.15
+        run: |
+          yarn install 1.22.15
+          yarn add 1.22.15
 
       - name: PostgreSQL Install
         run: sudo apt-get -yqq install libpq-dev
