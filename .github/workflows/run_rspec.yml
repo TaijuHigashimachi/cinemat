@@ -37,6 +37,9 @@ jobs:
 
       - name: Bundle Install
         run: bundle install
+        
+      - name: Start Postgresql
+        run: brew services start postgresql
 
       - name: Create Database
         run: bundle exec rails db:migrate:reset
