@@ -7,14 +7,17 @@ on:
     branches: [ master ]
 
 jobs:
-  my-job:
+  runner-job:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    env:
+      ENV: runner-job
     services:
       postgres:
         image: postgres
         env:
+          POSTGRES_USER: postgre
           POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -22,6 +25,35 @@ jobs:
           --health-retries 5
         ports:
           - 5432:5432
+    steps:
+      - name: Migrate DB schema
+        shell: bash
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          go get github.com/rubenv/sql-migrate/...
+          sql-migrate up -config=configs/dbconfig.yml -env=${ENV}
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+
+  container-job:
+    runs-on: ubuntu-latest
+    container:
+      image: node:15.14.0
+    env:
+      ENV: container-job
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout code
@@ -32,16 +64,24 @@ jobs:
         with:
           ruby-version: 3.0.2
 
+      - name: Migrate DB schema
+        shell: bash
+        run: |
+          export PATH=$PATH:$(go env GOPATH)/bin
+          go get github.com/rubenv/sql-migrate/...
+          sql-migrate up -config=configs/dbconfig.yml -env=${ENV}
+        env:
+          POSTGRES_HOST: postgres
+          POSTGRES_PORT: 5432
+
       - name: Set up Bundler
         run: gem install bundler
 
       - name: Bundle Install
         run: bundle install
         
-      - name: Install and Start Postgresql
-        run: |
-          brew install postgresql
-          brew services start postgresql
+      - name: Start Postgresql
+        run: brew services start postgresql
 
       - name: Create Database
         run: bundle exec rails db:migrate:reset
