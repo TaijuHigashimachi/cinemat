@@ -1,4 +1,4 @@
-name: run_rspec
+name: Run Rspec
 
 on:
   push:
@@ -20,6 +20,8 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          - 5432:5432
 
     steps:
       - name: Checkout code
@@ -33,11 +35,11 @@ jobs:
       - name: Set up Bundler
         run: gem install bundler
 
-      - name: Solve dependencies problem
-        run: brew install shared-mime-info
-
-      - name: bundle install
+      - name: Bundle Install
         run: bundle install
 
-      - name: Test with Rspec
+      - name: Create Database
+        run: bundle exec rails db:migrate:reset
+
+      - name: Run Rspec
         run: bundle exec rspec
