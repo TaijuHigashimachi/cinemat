@@ -81,3 +81,10 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: bundle exec rspec
+
+      - name: Archive Rspec Screenshots
+        if: failuer()
+        uses: actions/upload-artifact@v1
+        with: 
+          name: Rspec Screenshots
+          path: tmp/screenshots/
