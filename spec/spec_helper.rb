@@ -49,10 +49,7 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  config.before(:each, type: :system, js: true) do
-    driven_by([:selenium, screen_size: [1400, 1400], using: :headless_chrome]) do |options|
-      options.add_argument('--disable-dev-sim-usage')
-      options.add_argument('--no-sandbox')
-    end
+  config.before(:each) do |example|
+    driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400], options: { args: ['no-sandbox'] } if example.metadata[:type] == :system
   end
 end
