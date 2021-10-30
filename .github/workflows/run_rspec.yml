@@ -38,7 +38,7 @@ jobs:
           node-version: 15.14.0
 
       - name: Yarn Install
-        run: yarn@1.22.15 install
+        run: yarn install v1.22.15
 
       - name: Set up Bundler
         run: gem install bundler
