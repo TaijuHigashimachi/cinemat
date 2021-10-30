@@ -2,10 +2,6 @@
   "name": "cinemat",
   "private": true,
   "version": "0.1.0",
-  "engines": {
-    "yarn": "1.22.15",
-    "node": "15.14.0"
-  },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@popperjs/core": "^2.10.2",
@@ -23,8 +19,5 @@
   },
   "devDependencies": {
     "webpack-dev-server": "^3"
-  },
-  "scripts": {
-    "setup": "yarn",
   }
 }
