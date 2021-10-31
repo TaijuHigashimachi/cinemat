@@ -4,16 +4,19 @@
   <div class="col-4 border bg-warning">
     <%= link_to user_path(@user) do %>
       <i class="fas fa-plus-circle text-white"></i>
+      <span class="fs-5 text-white align-middle">観たい</span>
     <% end %>
   </div>
   <div class="col-4 border">
     <%= link_to user_watched_path(@user) do %>
       <i class="fas fa-check-circle text-white"></i>
+      <span class="fs-5 text-white align-middle">観た</span>
     <% end %>
   </div>
   <div class="col-4 border">
     <%= link_to user_uninterested_path(@user) do %>
       <i class="fas fa-minus-circle text-white"></i>
+      <span class="fs-5 text-white align-middle">興味なし</span>
     <% end %>
   </div>
 </div>
