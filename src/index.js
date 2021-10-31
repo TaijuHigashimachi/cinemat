@@ -1,4 +1,4 @@
-import css from "file.css";
+import "./style.css";
 
 function getComponent() {
   return import('lodash')
