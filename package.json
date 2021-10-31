@@ -23,9 +23,6 @@
   "devDependencies": {
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^5.2.7",
-    "html-loader": "^3.0.0",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.4.3",
     "webpack-dev-server": "^3"
   },
   "scripts": {
