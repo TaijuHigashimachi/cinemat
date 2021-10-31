@@ -20,7 +20,7 @@
         </div>
       </div>
     <% else %>
-      <% unless request.path.include?("new") %>
+      <% unless request.path.include?("new") || request.path.include?("login") %>
         <div class="row">
           <div class="col-6 text-center fs-3">
             <%= link_to login_path, class: 'text-light' do %>
