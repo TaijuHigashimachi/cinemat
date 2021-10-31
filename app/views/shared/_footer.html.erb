@@ -1,9 +1,9 @@
-<footer id='footer' class='footer-bottom bg-dark pb-3'>
+<footer id='footer' class='footer-bottom bg-dark footer-pc'>
   <hr>
   <% if request.smart_phone? %>
     <% if logged_in? %>
-      <div class="row">
-        <div class="col-6 text-center">
+      <div class="row align-items-center">
+        <div class="col-6 text-center fs-7">
           <%= link_to root_path do %>
             <i class="fa fa-home fa-5x" style="color: white;"></i>
           <% end %>
