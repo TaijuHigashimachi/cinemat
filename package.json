@@ -24,7 +24,8 @@
     "webpack-dev-server": "^3"
   },
   "scripts": {
-    "serve": "webpack-dev-server",
-    "build": "webpack"
+    "heroku-prebuild": "npm install --dev",
+    "build": "webpack --mode production",
+    "start": "node src/app.js"
   }
 }
