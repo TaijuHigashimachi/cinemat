@@ -20,18 +20,20 @@
         </div>
       </div>
     <% else %>
-      <div class="row">
-        <div class="col-6 text-center fs-3">
-          <%= link_to login_path, class: 'text-light' do %>
-            <%= (t 'defaults.login') %>
-          <% end %>
+      <% unless request.path.include?("new") %>
+        <div class="row">
+          <div class="col-6 text-center fs-3">
+            <%= link_to login_path, class: 'text-light' do %>
+              <%= (t 'defaults.login') %>
+            <% end %>
+          </div>
+          <div class="col-6 text-center fs-3">
+            <%= link_to new_user_path, class: 'text-light' do %>
+              <%= (t 'users.new.title') %>
+            <% end%>
+          </div>
         </div>
-        <div class="col-6 text-center fs-3">
-          <%= link_to new_user_path, class: 'text-light' do %>
-            <%= (t 'users.new.title') %>
-          <% end%>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   <% else %>
     <div class="d-flex align-items-center">
