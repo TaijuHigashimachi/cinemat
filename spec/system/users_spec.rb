@@ -11,8 +11,8 @@ RSpec.describe 'Movies', type: :system do
       visit new_user_path
       fill_in 'user[name]', with: 'user_1'
       fill_in 'user[email]', with: '1@example.com'
-      fill_in 'user[password]', with: '1234'
-      fill_in 'user[password_confirmation]', with: '1234'
+      fill_in 'user[password]', with: '123456'
+      fill_in 'user[password_confirmation]', with: '123456'
       click_button('登録する')
       expect(page).to have_content('ユーザーを登録しました')
     end
@@ -28,7 +28,7 @@ RSpec.describe 'Movies', type: :system do
     it 'ログインに成功' do
       visit login_path
       fill_in 'user[email]', with: "#{user.email}"
-      fill_in 'user[password]', with: '1234'
+      fill_in 'user[password]', with: '123456'
       click_button('ログイン')
 
       click_link "#{user.name}"
