@@ -24,10 +24,5 @@
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^5.2.7",
     "webpack-dev-server": "^3"
-  },
-  "scripts": {
-    "heroku-prebuild": "npm install --dev",
-    "build": "webpack --mode production",
-    "start": "node src/app.js"
   }
 }
