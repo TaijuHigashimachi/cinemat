@@ -16,14 +16,12 @@
     </div>
     <div class="d-flex">
       <div class="me-4 fs-6">
-        <%= movie.release_date.to_s.slice(0, 4) + '年公開' %>
-      </div>
-      <div class="me-4 fs-6">
+        <%= movie.release_date.to_s.slice(0, 4) + '年/' %>
         <%= movie.runtime + '分' %>
       </div>
       <div class="me-4 fs-6 me-auto">
-        <%= movie.genres[0]['name'] %>
-        <%= movie.genres[1]['name'] %>
+        <%= movie.genres[0]['name'] + '/' %>
+        <%= movie.genres[1]['name'] + '/' %>
         <%= movie.genres[2]['name'] %>
       </div>
     </div>
