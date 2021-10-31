@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import './style.css';
 
 function getComponent() {
   return import('lodash')
