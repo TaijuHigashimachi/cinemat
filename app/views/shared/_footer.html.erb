@@ -1,9 +1,9 @@
-<footer id='footer' class='footer-bottom bg-dark pb-3'>
+<footer id='footer' class='footer-bottom bg-dark footer-pc'>
   <hr>
   <% if request.smart_phone? %>
     <% if logged_in? %>
-      <div class="row">
-        <div class="col-6 text-center">
+      <div class="row align-items-center">
+        <div class="col-6 text-center fs-7">
           <%= link_to root_path do %>
             <i class="fa fa-home fa-5x" style="color: white;"></i>
           <% end %>
@@ -20,18 +20,20 @@
         </div>
       </div>
     <% else %>
-      <div class="row">
-        <div class="col-6 text-center fs-3">
-          <%= link_to login_path, class: 'text-light' do %>
-            <%= (t 'defaults.login') %>
-          <% end %>
+      <% unless request.path.include?("new") || request.path.include?("login") %>
+        <div class="row">
+          <div class="col-6 text-center fs-3">
+            <%= link_to login_path, class: 'text-light' do %>
+              <%= (t 'defaults.login') %>
+            <% end %>
+          </div>
+          <div class="col-6 text-center fs-3">
+            <%= link_to new_user_path, class: 'text-light' do %>
+              <%= (t 'users.new.title') %>
+            <% end%>
+          </div>
         </div>
-        <div class="col-6 text-center fs-3">
-          <%= link_to new_user_path, class: 'text-light' do %>
-            <%= (t 'users.new.title') %>
-          <% end%>
-        </div>
-      </div>
+      <% end %>
     <% end %>
   <% else %>
     <div class="d-flex align-items-center">

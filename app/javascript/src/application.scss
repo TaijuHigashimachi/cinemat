@@ -19,6 +19,12 @@ a {
   }
 }
 
+hr {
+  @include sp {
+    margin: 0 !important;
+  }
+}
+
 .form-wrapper {
   max-width: 500px;
 }
@@ -30,13 +36,19 @@ a {
 .fs-5 {
   @include sp {
     font-size: 1rem !important;
-  };
+  }
 }
 
 .fs-6 {
   @include sp {
     font-size: 14px !important;
-  };
+  }
+}
+
+.fs-7 {
+  @include sp {
+    font-size: 10px !important;
+  }
 }
 
 /** header **/
@@ -59,6 +71,13 @@ footer {
   width: 100%;
 }
 
+.footer-pc {
+  padding-bottom: 1rem !important;
+  @include sp {
+    padding-bottom: 0 !important;
+  }
+}
+
 /** / **/
 .container {
   margin-top: 100px;
@@ -67,7 +86,7 @@ footer {
     padding-left: 0 !important;
     padding-right: 0 !important;
     max-width: 100% !important;
-  };
+  }
 }
 
 .swiper {
@@ -75,7 +94,7 @@ footer {
   max-width: 800px;
   @include sp {
     max-height: 800px;
-  };
+  }
 }
 
 .trailer {
