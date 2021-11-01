@@ -1,11 +1,15 @@
 <div class="d-flex">
   <div class="w-25 text-center">
-    <%= image_tag "#{@user.avatar}", class: 'profile-image' %>
+    <%= link_to edit_user_path(@user) do %>
+      <%= image_tag "#{@user.avatar}", class: 'profile-image', size: '100x100' %>
+    <% end %>
   </div>
   <div class="profile-top d-block w-75 ms-3">
-    <p class="fs-1"><%= @user.name %></p>
+    <%= link_to edit_user_path(@user) do %>
+      <p class="fs-1 text-white"><%= @user.name %></p>
+    <% end %>
     <div class="d-flex">
-      <p><%= link_to (t 'users.edit.title'), edit_user_path(@user), class: 'text-white me-4' %></p>
+      <p><%= link_to (t 'defaults.contact'), page_path('contact'), class: 'text-white me-4' %></p>
       <p><%= link_to (t 'defaults.logout'), logout_path, method: :delete, class: 'text-white' %></p>
     </div>
   </div>
