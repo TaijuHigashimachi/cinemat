@@ -2,11 +2,14 @@
 <html>
   <head>
     <title><%= page_title(yield(:title)) %></title>
+
+    <!-- meta -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="シネマトは次に観る映画を、予告動画から探せるサービスです。予告が好きな人、何を観るか探している人は、ぜひご利用ください。">
 
+    <!-- assets -->
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -30,7 +33,7 @@
     <meta property="og:title" content="<%= page_title(yield(:title)) %>" />
     <meta property="og:url" content="<%= request.url %>" />
     <meta property="og:description"
-      content="<%= content_for?(:description) ? yield(:description) : 'シネマトは、次に観る映画を、予告動画から探せるサービスです。予告が好きな人、何を観るか探している人は、ぜひご利用ください。' %>" />
+      content="<%= content_for?(:description) ? yield(:description) : 'シネマトは次に観る映画を、予告動画から探せるサービスです。予告が好きな人、何を観るか探している人は、ぜひご利用ください。' %>" />
     <meta property="og:image" content="<%= content_for?(:image_url) ? yield(:image_url) : full_url('/assets/ogp_default.png') %>" />
   </head>
   <body class="bg-dark text-white">
