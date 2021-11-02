@@ -2,7 +2,7 @@ module ApplicationHelper
   include Pagy::Frontend
 
   def page_title(page_title = '')
-    base_title = 'シネマト - 映画の予告をもっと楽しむ'
+    base_title = 'シネマト - 次の「観たい」が見つかる'
 
     page_title.empty? ? base_title : "#{page_title}　|　#{base_title}"
   end
