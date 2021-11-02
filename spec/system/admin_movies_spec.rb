@@ -37,6 +37,7 @@ RSpec.describe 'Movies', type: :system do
 
         fill_in 'user_input', with: 'ボヘミアン・ラプソディ'
         click_button('検索')
+        sleep(1)
         expect(page).to have_content('ボヘミアン・ラプソディ　の検索結果')
         fill_in 'movie[title]', with: ''
         click_button('登録する')
