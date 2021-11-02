@@ -33,7 +33,7 @@ RSpec.describe 'Movies', type: :system do
 
       click_link "#{user.name}"
       expect(page).to have_selector(:css, '.profile-top', text: "#{user.name}")
-      expect(page).to have_selector(:css, '.profile-top', text: 'プロフィール編集')
+      expect(page).to have_selector(:css, '.profile-top', text: 'お問い合わせ')
       expect(page).to have_selector(:css, '.profile-top', text: 'ログアウト')
     end
   end
@@ -57,7 +57,8 @@ RSpec.describe 'Movies', type: :system do
     end
     context 'ログインユーザー' do
       it 'プロフィールの編集に失敗' do
-        click_link 'プロフィール編集'
+        link = find('.profile-top', text: "#{user.name}")
+        link.click
         fill_in 'user[name]', with: ""
         fill_in 'user[email]', with: ""
         click_button('更新する')
@@ -65,7 +66,8 @@ RSpec.describe 'Movies', type: :system do
         expect(page).to have_content('プロフィールの更新に失敗しました')
       end
       it 'プロフィールの編集に成功' do
-        click_link 'プロフィール編集'
+        link = find('.profile-top', text: "#{user.name}")
+        link.click
         fill_in 'user[name]', with: "edit_name"
         fill_in 'user[email]', with: "edit@example.com"
         attach_file 'user[avatar]', 'spec/fixtures/rspec_test.png'

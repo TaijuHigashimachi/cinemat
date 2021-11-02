@@ -9,10 +9,12 @@ RSpec.describe 'Movies', type: :system do
     context 'クッキーなし' do
       it '初回チュートリアルが表示される' do
         visit root_path
+        sleep(3)
         expect(page).to have_content('シネマトへようこそ')
       end
       it '全作品の中で、ユーザースコアが最も高い作品が、最初に表示される' do
         visit root_path
+        sleep(3)
         swipe_tutorial
         expect(page).to have_content("#{best_score_movie.title}")
       end
