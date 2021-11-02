@@ -4,9 +4,12 @@
     <title><%= page_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NXDBYNC2T0"></script>
     <script>
@@ -15,19 +18,20 @@
       gtag('js', new Date());
       gtag('config', 'G-NXDBYNC2T0');
     </script>
+
     <!-- favicon -->
     <%= favicon_link_tag %>
     <%= favicon_link_tag('android-chrome-192x192.png', {rel: 'android-touch-icon', sizes: '192*192', type: 'image/png'}) %>
     <%= favicon_link_tag('apple-touch-icon.png', {rel: 'apple-touch-icon', sizes: '180*180', type: 'image/png'}) %>
+
     <!-- ogp -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@McBattleChannel" />
+    <meta name="twitter:site" content="@MoviePosterJpUs" />
     <meta property="og:title" content="<%= page_title(yield(:title)) %>" />
     <meta property="og:url" content="<%= request.url %>" />
     <meta property="og:description"
-      content="<%= content_for?(:description) ? yield(:description) : 'MCバトルの総合サイトです。' %>" />
-    <meta property="og:image"
-      content="<%= content_for?(:image_url) ? yield(:image_url) : page_title('/assets/ogp_default.png') %>" />
+      content="<%= content_for?(:description) ? yield(:description) : 'シネマトは、次に観る映画を、予告から探せるサービスです。予告が好きな人、何を観るか探している人は、ぜひご利用ください。' %>" />
+    <meta property="og:image" content="<%= content_for?(:image_url) ? yield(:image_url) : full_url('/assets/ogp_default.png') %>" />
   </head>
   <body class="bg-dark text-white">
     <%= render 'shared/header' %>
