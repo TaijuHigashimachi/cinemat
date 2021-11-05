@@ -53,9 +53,9 @@
   </div>
 </div>
 <script>
-  function mouseMove(){
+  function mouseOver(){
     let movieId = document.querySelector('.js-movie-id-<%= movie.id %>').innerHTML;
     document.cookie = 'cinemat_movie_id=' + movieId
   }
-  document.querySelector('.js-touch-area-<%=  movie.id %>').addEventListener('mousemove', mouseMove)
+  document.querySelector('.js-touch-area-<%=  movie.id %>').addEventListener('mouseover', mouseOver)
 </script>

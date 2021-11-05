@@ -44,3 +44,8 @@
   <%== pagy_bootstrap_nav(@pagy) %>
 </div>
 <%= javascript_pack_tag "infinite-scroll" %>
+<script>
+  $(document).ready(function(){
+    $('html,body').animate({ scrollTop: 0 }, '1');
+  });
+</script>
