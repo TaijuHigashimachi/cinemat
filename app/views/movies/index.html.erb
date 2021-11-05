@@ -40,5 +40,7 @@
   <% end %>
 <% end %>
 <%= render @movies %>
-<%== pagy_bootstrap_nav(@pagy) %>
+<div class="d-none">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
 <%= javascript_pack_tag "infinite-scroll" %>
