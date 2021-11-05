@@ -1,7 +1,7 @@
-<div class="swiper">
-  <div class="swiper-wrapper">
-    <% if current_user.nil? && cookies['cinemat_movie_id'].nil? %>
-      <div class="swiper-slide border">
+<% if current_user.nil? && cookies['cinemat_movie_id'].nil? %>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
         <div class="h-100 fs-1 text-center">
           <div>
             <p class="mt-5">シネマトへようこそ</p>
@@ -16,11 +16,11 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide border">
+      <div class="swiper-slide">
         <div class="h-100 fs-1 text-center">
           <div>
             <p class="mt-5">シネマトは<br />
-            映画の予告動画を<br />
+            映画の予告を<br />
             楽しむサービスです</p>
             <p class="mt-5">ユーザー登録をすると<br />
             各映画をウォッチリストに<br />
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="swiper-slide border">
+      <div class="swiper-slide">
         <% if request.smart_phone? %>
           <div class="h-100 fs-1 text-center d-flex justify-content-center mt-5 pt-5">
             <p>それでは<br />映画の予告を<br />お楽しみください</p>
@@ -53,8 +53,10 @@
           </div>
         <% end %>
       </div>
-    <% end %>
-    <%= render @movies %>
+    </div>
   </div>
-</div>
+<% end %>
+<%= render @movies %>
+<%== pagy_bootstrap_nav(@pagy) %>
 <%= javascript_pack_tag "swiper" %>
+<%= javascript_pack_tag "infinite-scroll" %>

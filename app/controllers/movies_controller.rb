@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  include Pagy::Backend
+
   def index
     # 全映画をユーザースコア順に並べて取得
     all_movies = Movie.all.order(user_score: :desc)
@@ -6,7 +8,7 @@ class MoviesController < ApplicationController
     next_view_movies = if cookies['cinemat_movie_id']
                          # ブラウザを閉じる前、最後に観ていた映画を取得
                          last_viewed_movie = Movie.find(cookies['cinemat_movie_id'].to_i)
-                         # 全映画の中から、last_viewed_movieの次から最後までのデータを取得
+                         # 全映画の中から、last_viewed_movieの次から最後までのデータを取得し、Activerecord Relationに
                          all_movies[all_movies.index(last_viewed_movie) + 1..all_movies.index(all_movies.last)]
                        end
 
@@ -24,18 +26,18 @@ class MoviesController < ApplicationController
                       Movie.where(id: movie_status_id_array)
                     end
 
-              # 未ログインユーザー x クッキーなし
-    @movies = if current_user.nil? && cookies['cinemat_movie_id'].nil?
-                all_movies
-              # 未ログインユーザー x クッキーあり
-              elsif current_user.nil? && cookies['cinemat_movie_id'].present?
-                next_view_movies
-              # ログインユーザー x クッキーなし
-              elsif current_user && cookies['cinemat_movie_id'].nil?
-                all_movies - status_movies
-              # ログインユーザー x クッキーあり
-              elsif current_user && cookies['cinemat_movie_id'].present?
-                next_view_movies - status_movies
-              end
+                     # 未ログインユーザー x クッキーなし
+    @pagy, @movies = if current_user.nil? && cookies['cinemat_movie_id'].nil?
+                       pagy(all_movies, items: 2)
+                     # 未ログインユーザー x クッキーあり
+                     elsif current_user.nil? && cookies['cinemat_movie_id'].present?
+                       pagy_array(next_view_movies, items: 2)
+                     # ログインユーザー x クッキーなし
+                     elsif current_user && cookies['cinemat_movie_id'].nil?
+                       pagy_array(all_movies - status_movies, items: 2)
+                     # ログインユーザー x クッキーあり
+                     elsif current_user && cookies['cinemat_movie_id'].present?
+                       pagy_array(next_view_movies - status_movies, items: 2)
+                     end
   end
 end
