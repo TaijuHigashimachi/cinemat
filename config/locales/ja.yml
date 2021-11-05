@@ -10,6 +10,7 @@ ja:
     delete: '削除'
     search: '検索'
     password_reset: 'パスワードリセット ｜ シネマト'
+    edit_profile: 'プロフィール編集'
     contact: 'お問い合わせ'
     message:
         require_login: 'ログインしてください'

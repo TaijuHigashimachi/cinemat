@@ -21,7 +21,7 @@ a {
 
 hr {
   @include sp {
-    margin: 0 !important;
+    margin: 0.5rem 0;
   }
 }
 
@@ -40,9 +40,7 @@ hr {
 }
 
 .fs-6 {
-  @include sp {
-    font-size: 14px !important;
-  }
+  font-size: 14px !important;
 }
 
 .fs-7 {
