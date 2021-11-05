@@ -1,6 +1,6 @@
-<div class="swiper">
-  <div class="swiper-wrapper">
-    <% if current_user.nil? && cookies['cinemat_movie_id'].nil? %>
+<% if current_user.nil? && cookies['cinemat_movie_id'].nil? %>
+  <div class="swiper">
+    <div class="swiper-wrapper">
       <div class="swiper-slide">
         <div class="h-100 fs-1 text-center">
           <div>
@@ -53,8 +53,10 @@
           </div>
         <% end %>
       </div>
-    <% end %>
-    <%= render @movies %>
+    </div>
   </div>
-</div>
+<% end %>
+<%= render @movies %>
+<%== pagy_bootstrap_nav(@pagy) %>
 <%= javascript_pack_tag "swiper" %>
+<%= javascript_pack_tag "infinite-scroll" %>
