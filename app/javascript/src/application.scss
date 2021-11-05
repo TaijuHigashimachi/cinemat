@@ -1,6 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~swiper/swiper';
 
 $breakpoints: (
   sp: 599px
@@ -90,14 +89,6 @@ footer {
     padding-left: 0 !important;
     padding-right: 0 !important;
     max-width: 100% !important;
-  }
-}
-
-.swiper {
-  max-height: 725px;
-  max-width: 800px;
-  @include sp {
-    max-height: 800px;
   }
 }
 
