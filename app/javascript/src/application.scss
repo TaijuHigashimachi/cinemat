@@ -1,6 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~swiper/swiper';
 
 $breakpoints: (
   sp: 599px
@@ -21,7 +20,7 @@ a {
 
 hr {
   @include sp {
-    margin: 0 !important;
+    margin: 0.5rem 0;
   }
 }
 
@@ -40,9 +39,7 @@ hr {
 }
 
 .fs-6 {
-  @include sp {
-    font-size: 14px !important;
-  }
+  font-size: 14px !important;
 }
 
 .fs-7 {
@@ -86,6 +83,7 @@ footer {
 /** / **/
 .container {
   margin-top: 100px;
+  margin-bottom: 200px;
   @include sp {
     margin-top: 80px;
     padding-left: 0 !important;
@@ -94,12 +92,10 @@ footer {
   }
 }
 
-.swiper {
-  max-height: 725px;
+.movie-area {
   max-width: 800px;
-  @include sp {
-    max-height: 800px;
-  }
+  margin: auto;
+  margin-bottom: 5rem;
 }
 
 .trailer {

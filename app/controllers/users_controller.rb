@@ -1,18 +1,20 @@
 class UsersController < ApplicationController
+  include Pagy::Backend
+
   before_action :require_login, only: %i[show watched uninterested edit update]
   before_action :set_user, only: %i[show edit update watched uninterested]
   before_action :set_movie_statuses, only: %i[show watched uninterested]
 
   def show
-    @watch_movies = movie_search_by_status(@movie_statuses, 'watch')
+    @pagy, @watch_movies = pagy_array(movie_search_by_status(@movie_statuses, 'watch').order(updated_at: :asc), items: 2)
   end
 
   def watched
-    @watched_movies = movie_search_by_status(@movie_statuses, 'watched')
+    @pagy, @watched_movies = pagy_array(movie_search_by_status(@movie_statuses, 'watched').order(updated_at: :asc), items: 2)
   end
 
   def uninterested
-    @uninterested_movies = movie_search_by_status(@movie_statuses, 'uninterested')
+    @pagy, @uninterested_movies = pagy_array(movie_search_by_status(@movie_statuses, 'uninterested').order(updated_at: :asc), items: 2)
   end
 
   def new

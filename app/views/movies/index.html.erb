@@ -1,60 +1,46 @@
-<div class="swiper">
-  <div class="swiper-wrapper">
-    <% if current_user.nil? && cookies['cinemat_movie_id'].nil? %>
-      <div class="swiper-slide">
-        <div class="h-100 fs-1 text-center">
-          <div>
-            <p class="mt-5">シネマトへようこそ</p>
-            <p class="mt-5">上にスワイプすると<br />次のスライドに移ります</p>
-          </div>
-          <div>
-            <% if request.smart_phone? %>
-              <%= image_tag 'swipe_up', class: 'mx-auto mt-5 d-block', size: '150x150' %>
-            <% else %>
-              <%= image_tag 'swipe_up', class: 'mx-auto mt-5 d-block' %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="h-100 fs-1 text-center">
-          <div>
-            <p class="mt-5">シネマトは<br />
-            映画の予告を<br />
-            楽しむサービスです</p>
-            <p class="mt-5">ユーザー登録をすると<br />
-            各映画をウォッチリストに<br />
-            登録できます</p>
-            <div class="d-flex text-center fs-1 mt-5">
-              <div class="col-4 border">
-                <i class="fas fa-plus-circle text-white"></i>
-                <span class="fs-5 text-white align-middle">観たい</span>
-              </div>
-              <div class="col-4 border">
-                <i class="fas fa-check-circle text-white"></i>
-                <span class="fs-5 text-white align-middle">観た</span>
-              </div>
-              <div class="col-4 border">
-                <i class="fas fa-minus-circle text-white"></i>
-                <span class="fs-5 text-white align-middle">興味なし</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <% if request.smart_phone? %>
-          <div class="h-100 fs-1 text-center d-flex justify-content-center mt-5 pt-5">
-            <p>それでは<br />映画の予告を<br />お楽しみください</p>
-          </div>
-        <% else %>
-          <div class="h-100 fs-1 text-center d-flex justify-content-center align-items-center">
-            <p>それでは<br />映画の予告を<br />お楽しみください</p>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <%= render @movies %>
+<% if current_user.nil? && cookies['cinemat_movie_id'].nil? %>
+  <div class="h-100 fs-1 text-center border">
+    <p class="mt-5 mb-5">シネマトでは<br />
+    映画の予告から<br />
+    次に観る映画を探せます</p>
   </div>
+  <div class="h-100 fs-1 text-center border">
+    <div>
+      <p class="mt-5">ユーザー登録をすると<br />
+      各映画をウォッチリストに<br />
+      登録できます</p>
+      <% if request.smart_phone? %>
+        <div class="d-flex text-center fs-1 mt-5 mb-5 ms-3 me-3">
+      <% else %>
+        <div class="d-flex text-center fs-1 m-5">
+      <% end %>
+        <div class="col-4 border">
+          <i class="fas fa-plus-circle text-white"></i>
+          <span class="fs-5 text-white align-middle">観たい</span>
+        </div>
+        <div class="col-4 border">
+          <i class="fas fa-check-circle text-white"></i>
+          <span class="fs-5 text-white align-middle">観た</span>
+        </div>
+        <div class="col-4 border">
+          <i class="fas fa-minus-circle text-white"></i>
+          <span class="fs-5 text-white align-middle">興味なし</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if request.smart_phone? %>
+    <div class="h-100 fs-1 text-center d-flex justify-content-center border mb-5">
+      <p class="mt-5 mb-5">それでは<br />映画の予告を<br />お楽しみください</p>
+    </div>
+  <% else %>
+    <div class="h-100 fs-1 text-center d-flex justify-content-center align-items-center border mb-5">
+      <p class="mt-5 mb-5">それでは<br />映画の予告を<br />お楽しみください</p>
+    </div>
+  <% end %>
+<% end %>
+<%= render @movies %>
+<div class="d-none">
+  <%== pagy_bootstrap_nav(@pagy) %>
 </div>
-<%= javascript_pack_tag "swiper" %>
+<%= javascript_pack_tag "infinite-scroll" %>
