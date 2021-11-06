@@ -2,7 +2,7 @@
   <hr>
   <% if request.smart_phone? %>
     <% if logged_in? %>
-      <div class="row align-items-center">
+      <div class="row align-items-center ms-4 me-4">
         <div class="col-4 text-center fs-7">
           <%= link_to root_path do %>
             <i class="fa fa-home fa-4x" style="color: white;"></i>
@@ -26,7 +26,8 @@
       </div>
     <% else %>
       <% unless request.path.include?("new") || request.path.include?("login") %>
-        <div class="row mb-2">
+        <div class="row mb-2 ms-3 me-3">
+          <div class="col-1"></div>
           <div class="col-5 text-center fs-5">
             <%= link_to login_path, class: 'text-light' do %>
               <%= (t 'defaults.login') %>
@@ -37,7 +38,7 @@
               <%= (t 'users.new.title') %>
             <% end%>
           </div>
-          <div class="col-2 text-center">
+          <div class="col-1 text-center">
             <%= link_to page_path('information') do %>
               <i class="fas fa-info-circle fa-2x" style="color: white;"></i>
             <% end %>
