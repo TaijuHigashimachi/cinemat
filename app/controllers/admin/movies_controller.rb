@@ -9,7 +9,7 @@ class Admin::MoviesController < Admin::BaseController
   before_action :set_search_result, only: %i[api_search]
 
   def index
-    @pagy, @movies = pagy(Movie.all.order(user_score: :desc).order(id: :asc))
+    @pagy, @movies = pagy(Movie.all.order(id: :desc))
   end
 
   def create
