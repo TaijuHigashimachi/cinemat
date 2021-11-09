@@ -9,6 +9,8 @@ https://cinematrailer.herokuapp.com
   
 ### Qiitaに記事を投稿しました。
 
+### noteに記事を投稿しました。
+
   
 ## 3．主な機能
 
@@ -129,4 +131,3 @@ enum status: { default: 0, watch: 1, watched: 2, uninterested: 3 }
 - [The Movie Database](https://www.themoviedb.org/?language=ja)
     - Wikipediaのように、ユーザーが作成する映画データベース
     - 映画情報の登録に使用
-    - 詳しくは「[3．力を入れたポイント](#3力を入れたポイント)」にて紹介しています
