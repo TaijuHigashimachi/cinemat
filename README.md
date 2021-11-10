@@ -8,10 +8,10 @@ https://cinematrailer.herokuapp.com
 カンタンにいうと、予告のYouTube動画がズラーッと並んでいて、スクロールとタップだけでカンタンに視聴できるサービス。
   
 ### Qiitaに少しだけ詳細を追記した記事を投稿しました。
-Qiita記事のリンク
+https://qiita.com/taiju365/items/be126c437e9831685fd7
 
 ### なぜこのサービスをつくったのか、その想いと経緯をnoteに投稿しました。
-note記事のリンク
+https://note.com/taiju365/n/naba8d1d016e5
 
   
 ## 3．主な機能
