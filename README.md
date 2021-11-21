@@ -13,6 +13,9 @@ https://qiita.com/taiju365/items/be126c437e9831685fd7
 ### なぜこのサービスをつくったのか、その想いと経緯をnoteに投稿しました。
 https://note.com/taiju365/n/naba8d1d016e5
 
+### 実績
+リリース日：2021年11月10日
+
   
 ## 3．主な機能
 
