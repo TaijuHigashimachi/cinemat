@@ -9,7 +9,8 @@ https://cinematrailer.herokuapp.com
   
 ### 詳細
 
-[これまで無かった「映画の予告がメインのサービス」を未経験エンジニアが作ってみた【個人開発】 - Qiita](https://qiita.com/taiju365/items/be126c437e9831685fd7)
+[これまで無かった「映画の予告がメインのサービス」を未経験エンジニアが作ってみた【個人開発】 - Qiita](https://qiita.com/taiju365/items/be126c437e9831685fd7)  
+
 [映画が好き過ぎて、予告がメインのサービスを、個人開発した人の話 - note](https://note.com/taiju365/n/naba8d1d016e5)
   
 ## 3．主な機能
