@@ -12,7 +12,11 @@ https://cinematrailer.herokuapp.com
 [これまで無かった「映画の予告がメインのサービス」を未経験エンジニアが作ってみた【個人開発】 - Qiita](https://qiita.com/taiju365/items/be126c437e9831685fd7)  
 
 [映画が好き過ぎて、予告がメインのサービスを、個人開発した人の話 - note](https://note.com/taiju365/n/naba8d1d016e5)
-  
+
+### 実績（2021年11月4日〜12月3日）
+PV数：3,316
+ユーザー数：745
+
 ## 3．主な機能
 
 ### トップページ
